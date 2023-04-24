@@ -54,6 +54,8 @@ Some currencies such as XRP, XMR allow filling of secondary address labels
 {% endswagger-response %}
 {% endswagger %}
 
+**weight(IP/UID): 100**
+
 {% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.com" summary="Withdrawal record query" %}
 {% swagger-description %}
 
@@ -139,6 +141,8 @@ Page number, starting at 1
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+**weight(IP/UID): 100**
 
 #### Responses
 
