@@ -740,7 +740,7 @@ Start retrieving from this Id
 
 {% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/myTrades" path="" method="get" summary="Order record" %}
 {% swagger-description %}
-Speed limit rules: 20 times/ 2s
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
@@ -815,7 +815,7 @@ All interfaces under the account require [signature and API-key verification​]
 
 {% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/account" path="" method="get" summary="Account info" %}
 {% swagger-description %}
-Speed limit rules: 20 times/2s
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}

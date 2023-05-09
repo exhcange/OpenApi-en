@@ -567,9 +567,7 @@ Symbol Name. E.g.
 
 {% swagger method="get" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" Query Order" %}
 {% swagger-description %}
- 
 
-**Rate Limit: 20times/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -639,9 +637,7 @@ Symbol Name. E.g.
 
 {% swagger method="post" path="/sapi/v1/cancel" baseUrl="https://openapi.xxx.com" summary="Cancel Order" %}
 {% swagger-description %}
- 
 
-**Rate Limit: 100time/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -750,7 +746,7 @@ Symbol Name. E.g.
 
 {% swagger method="get" path="/sapi/v1/openOrders" baseUrl="https://openapi.xxx.com" summary=" Current Open Orders" %}
 {% swagger-description %}
-**Rate Limit: 20times/2s**
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -817,9 +813,7 @@ Default 100; Max 1000
 
 {% swagger method="get" path="/sapi/v1/myTrades" baseUrl="https://openapi.xxx.com" summary="Trades" %}
 {% swagger-description %}
- 
 
-**Rate Limt: 20times/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -897,9 +891,7 @@ Endpoints under Account require an API-key and a signature.\
 
 {% swagger method="get" path="/sapi/v1/account" baseUrl="https://openapi.xxx.com" summary=" Account Information" %}
 {% swagger-description %}
- 
 
-**Rate Limit: 20times/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
