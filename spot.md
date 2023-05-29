@@ -185,7 +185,7 @@ Symbol Name. E.g.
 
 #### Response:
 
-<table data-header-hidden><thead><tr><th width="150">name</th><th>type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>time</td><td>long</td><td><code>1595563624731</code></td><td>Open Time</td><td></td></tr><tr><td>high</td><td>float</td><td><code>9900</code></td><td>High Price</td><td></td></tr><tr><td>low</td><td>float</td><td><code>8800.34</code></td><td>Low Price</td><td></td></tr><tr><td>open</td><td>float</td><td><code>8700</code></td><td>Open Price</td><td></td></tr><tr><td>last</td><td>float</td><td><code>8900</code></td><td>Last Price</td><td></td></tr><tr><td>vol</td><td>float</td><td><code>4999</code></td><td>Trade Volume</td><td></td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th width="150">name</th><th>type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>time</td><td>long</td><td><code>1595563624731</code></td><td>Open Time</td><td></td></tr><tr><td>high</td><td>float</td><td><code>9900</code></td><td>High Price</td><td></td></tr><tr><td>low</td><td>float</td><td><code>8800.34</code></td><td>Low Price</td><td></td></tr><tr><td>open</td><td>float</td><td><code>8700</code></td><td>Open Price</td><td></td></tr><tr><td>last</td><td>float</td><td><code>8900</code></td><td>Last Price</td><td></td></tr><tr><td>vol</td><td>float</td><td><code>4999</code></td><td>Trade Volume</td><td></td></tr><tr><td>rose</td><td>float</td><td>0</td><td>Price increase or Price rise</td><td></td></tr></tbody></table>
 
 
 
