@@ -185,13 +185,7 @@ Symbol Name. E.g.
 
 #### Response:
 
-| time | long  | `1595563624731` | Open Time    |   |
-| ---- | ----- | --------------- | ------------ | - |
-| high | float | `9900`          | High Price   |   |
-| low  | float | `8800.34`       | Low Price    |   |
-| open | float | `8700`          | Open Price   |   |
-| last | float | `8900`          | Last Price   |   |
-| vol  | float | `4999`          | Trade Volume |   |
+<table data-header-hidden><thead><tr><th width="150">name</th><th>type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>time</td><td>long</td><td><code>1595563624731</code></td><td>Open Time</td><td></td></tr><tr><td>high</td><td>float</td><td><code>9900</code></td><td>High Price</td><td></td></tr><tr><td>low</td><td>float</td><td><code>8800.34</code></td><td>Low Price</td><td></td></tr><tr><td>open</td><td>float</td><td><code>8700</code></td><td>Open Price</td><td></td></tr><tr><td>last</td><td>float</td><td><code>8900</code></td><td>Last Price</td><td></td></tr><tr><td>vol</td><td>float</td><td><code>4999</code></td><td>Trade Volume</td><td></td></tr></tbody></table>
 
 
 
@@ -232,11 +226,7 @@ Default 100; Max 1000Responses200
 
 #### Response:
 
-| price | float  | `0.055`         | The price of the trade |   |
-| ----- | ------ | --------------- | ---------------------- | - |
-| time  | long   | `1537797044116` | Current timestamp (ms) |   |
-| qty   | float  | `5`             | The quantity traded    |   |
-| side  | string | `BUY/SELL`      | Taker side             |   |
+<table data-header-hidden><thead><tr><th width="150">name</th><th>type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>price</td><td>float</td><td><code>0.055</code></td><td>The price of the trade</td><td></td></tr><tr><td>time</td><td>long</td><td><code>1537797044116</code></td><td>Current timestamp (ms)</td><td></td></tr><tr><td>qty</td><td>float</td><td><code>5</code></td><td>The quantity traded</td><td></td></tr><tr><td>side</td><td>string</td><td><code>BUY/SELL</code></td><td>Taker side</td><td></td></tr></tbody></table>
 
 
 
@@ -332,13 +322,7 @@ Default 100; Max 300Responses200
 
 #### Response:
 
-| `idx` | long  | `1538728740000` | Open time   |   |
-| ----- | ----- | --------------- | ----------- | - |
-| open  | float | `36.00000`      | open price  |   |
-| close | float | `33.00000`      | close price |   |
-| high  | float | `36.00000`      | high price  |   |
-| low   | float | `30.00000`      | low price   |   |
-| vol   | float | `2456.111`      | volume      |   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td><code>idx</code></td><td>long</td><td><code>1538728740000</code></td><td>Open time</td><td></td></tr><tr><td>open</td><td>float</td><td><code>36.00000</code></td><td>open price</td><td></td></tr><tr><td>close</td><td>float</td><td><code>33.00000</code></td><td>close price</td><td></td></tr><tr><td>high</td><td>float</td><td><code>36.00000</code></td><td>high price</td><td></td></tr><tr><td>low</td><td>float</td><td><code>30.00000</code></td><td>low price</td><td></td></tr><tr><td>vol</td><td>float</td><td><code>2456.111</code></td><td>volume</td><td></td></tr></tbody></table>
 
 ### Trade
 
@@ -422,17 +406,7 @@ Time window
 
 #### Response:
 
-| orderId       | long    | `150695552109032492` | ID of the order                                                                                                     |   |
-| ------------- | ------- | -------------------- | ------------------------------------------------------------------------------------------------------------------- | - |
-| clientorderId | string  | `213443`             | A unique ID of the order.                                                                                           |   |
-| symbol        | string  | `BTCUSDT`            | Symbol Name                                                                                                         |   |
-| transactTime  | integer | `1273774892913`      | Time the order is placed                                                                                            |   |
-| price         | float   | `4765.29`            | Time the order is placed                                                                                            |   |
-| origQty       | float   | `1.01`               | Quantity ordered                                                                                                    |   |
-| executedQty   | float   | `1.01`               | Quantity of orders that has been executed                                                                           |   |
-| type          | string  | `LIMIT`              | Order type `LIMIT,MARKET`                                                                                           |   |
-| side          | string  | `BUY`                | Order side：`BUY, SELL`                                                                                              |   |
-| status        | string  | `NEW`                | The state of the order.Possible values include `NEW`, `PARTIALLY_FILLED`, `FILLED`, `CANCELED`, and `REJECTED`.POST |   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>orderId</td><td>long</td><td><code>150695552109032492</code></td><td>ID of the order</td><td></td></tr><tr><td>clientorderId</td><td>string</td><td><code>213443</code></td><td>A unique ID of the order.</td><td></td></tr><tr><td>symbol</td><td>string</td><td><code>BTCUSDT</code></td><td>Symbol Name</td><td></td></tr><tr><td>transactTime</td><td>integer</td><td><code>1273774892913</code></td><td>Time the order is placed</td><td></td></tr><tr><td>price</td><td>float</td><td><code>4765.29</code></td><td>Time the order is placed</td><td></td></tr><tr><td>origQty</td><td>float</td><td><code>1.01</code></td><td>Quantity ordered</td><td></td></tr><tr><td>executedQty</td><td>float</td><td><code>1.01</code></td><td>Quantity of orders that has been executed</td><td></td></tr><tr><td>type</td><td>string</td><td><code>LIMIT</code></td><td>Order type <code>LIMIT,MARKET</code></td><td></td></tr><tr><td>side</td><td>string</td><td><code>BUY</code></td><td>Order side：<code>BUY, SELL</code></td><td></td></tr><tr><td>status</td><td>string</td><td><code>NEW</code></td><td>The state of the order.Possible values include <code>NEW</code>, <code>PARTIALLY_FILLED</code>, <code>FILLED</code>, <code>CANCELED</code>, and <code>REJECTED</code>.POST</td><td></td></tr></tbody></table>
 
 {% swagger method="post" path="/sapi/v1/order/test" baseUrl="https://openapi.xxx.com" summary=" Test New Order" %}
 {% swagger-description %}
@@ -555,11 +529,7 @@ Symbol Name. E.g.
 
 #### Resquest `orders` field: <a href="#resquest-orders-field" id="resquest-orders-field"></a>
 
-| price     | long   | 1000           | Price of the order      |   |
-| --------- | ------ | -------------- | ----------------------- | - |
-| volume    | folat  | 20.1           | Vol of the order        |   |
-| side      | string | `BUY/SELL`     | Side of the order       |   |
-| batchType | string | `LIMIT/MARKET` | Batch type of the order |   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>price</td><td>long</td><td>1000</td><td>Price of the order</td><td></td></tr><tr><td>volume</td><td>folat</td><td>20.1</td><td>Vol of the order</td><td></td></tr><tr><td>side</td><td>string</td><td><code>BUY/SELL</code></td><td>Side of the order</td><td></td></tr><tr><td>batchType</td><td>string</td><td><code>LIMIT/MARKET</code></td><td>Batch type of the order</td><td></td></tr></tbody></table>
 
 
 
@@ -619,17 +589,7 @@ Symbol Name. E.g.
 
 #### **Response:**
 
-| orderId       | long   | `150695552109032492` | Order ID (system generated)                                                                                                                                                             |   |
-| ------------- | ------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
-| clientorderId | string | `213443`             | Order ID (sent by yourself)                                                                                                                                                             |   |
-| symbol        | string | `BTCUSDT`            | Currency Pair Name                                                                                                                                                                      |   |
-| price         | float  | `4765.29`            | Order Price                                                                                                                                                                             |   |
-| origQty       | float  | `1.01`               | Number of orders                                                                                                                                                                        |   |
-| executedQty   | float  | `1.01`               | Number of orders already filled                                                                                                                                                         |   |
-| avgPrice      | float  | `4754.24`            | Average price of orders already filled                                                                                                                                                  |   |
-| type          | string | limit                | The order type`LIMIT,MARKET`                                                                                                                                                            |   |
-| side          | string | `BUY`                | Order direction. Possible values can only be: BUY (buy long) and SELL (sell short)                                                                                                      |   |
-| status        | string | `NEW`                | Order status. Possible values are NEW (new order, no transaction), PARTIALLY\_FILLED (partially filled), FILLED (fully filled), CANCELED (cancelled) and REJECTED (order rejected).POST |   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>Example</th><th>Description</th><th></th></tr></thead><tbody><tr><td>orderId</td><td>long</td><td><code>150695552109032492</code></td><td>Order ID (system generated)</td><td></td></tr><tr><td>clientorderId</td><td>string</td><td><code>213443</code></td><td>Order ID (sent by yourself)</td><td></td></tr><tr><td>symbol</td><td>string</td><td><code>BTCUSDT</code></td><td>Currency Pair Name</td><td></td></tr><tr><td>price</td><td>float</td><td><code>4765.29</code></td><td>Order Price</td><td></td></tr><tr><td>origQty</td><td>float</td><td><code>1.01</code></td><td>Number of orders</td><td></td></tr><tr><td>executedQty</td><td>float</td><td><code>1.01</code></td><td>Number of orders already filled</td><td></td></tr><tr><td>avgPrice</td><td>float</td><td><code>4754.24</code></td><td>Average price of orders already filled</td><td></td></tr><tr><td>type</td><td>string</td><td>limit</td><td>The order type<code>LIMIT,MARKET</code></td><td></td></tr><tr><td>side</td><td>string</td><td><code>BUY</code></td><td>Order direction. Possible values can only be: BUY (buy long) and SELL (sell short)</td><td></td></tr><tr><td>status</td><td>string</td><td><code>NEW</code></td><td>Order status. Possible values are NEW (new order, no transaction), PARTIALLY_FILLED (partially filled), FILLED (fully filled), CANCELED (cancelled) and REJECTED (order rejected).POST</td><td></td></tr><tr><td>transactTime</td><td>string</td><td>1574327555669</td><td>Order Creation Time</td><td></td></tr></tbody></table>
 
 
 
@@ -683,11 +643,7 @@ Symbol Name. E.g.
 
 #### Response:
 
-| orderId       | long   | `150695552109032492` | ID of the order                                                                                                                                                                       |   |
-| ------------- | ------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - |
-| clientorderId | string | `213443`             | Unique ID of the order.                                                                                                                                                               |   |
-| symbol        | string | `BTCUSDT`            | Name of the symbol                                                                                                                                                                    |   |
-| status        | string | `NEW`                | <p>The state of the order.Possible values include <code>NEW</code>, <code>PARTIALLY_FILLED</code>, <code>FILLED</code>, <code>CANCELED</code>, and <code>REJECTED</code>.POST<br></p> |   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>orderId</td><td>long</td><td><code>150695552109032492</code></td><td>ID of the order</td><td></td></tr><tr><td>clientorderId</td><td>string</td><td><code>213443</code></td><td>Unique ID of the order.</td><td></td></tr><tr><td>symbol</td><td>string</td><td><code>BTCUSDT</code></td><td>Name of the symbol</td><td></td></tr><tr><td>status</td><td>string</td><td><code>NEW</code></td><td>The state of the order.Possible values include <code>NEW</code>, <code>PARTIALLY_FILLED</code>, <code>FILLED</code>, <code>CANCELED</code>, and <code>REJECTED</code>.POST<br></td><td></td></tr></tbody></table>
 
 
 
@@ -796,18 +752,7 @@ Default 100; Max 1000
 
 #### **Response:**
 
-| orderId       | long   | `150695552109032492`   | ID of the order                                                                                                    |   |
-| ------------- | ------ | ---------------------- | ------------------------------------------------------------------------------------------------------------------ | - |
-| orderIdString | string | "`150695552109032492"` | Character String Type Order ID (Recommended)                                                                       |   |
-| clientorderId | string | `213443`               | Unique ID of the order.                                                                                            |   |
-| symbol        | string | `BTCUSDT`              | Name of the symbol                                                                                                 |   |
-| price         | float  | `4765.29`              | Price of the order                                                                                                 |   |
-| origQty       | float  | `1.01`                 | Quantity ordered                                                                                                   |   |
-| executedQty   | float  | `1.01`                 | Quantity of orders that has been executed                                                                          |   |
-| avgPrice      | float  | `4754.24`              | Average price of filled orders.                                                                                    |   |
-| type          | string | `LIMIT`                | The order type`LIMIT,MARKET`                                                                                       |   |
-| side          | string | `BUY`                  | The order side `BUY,SELL`                                                                                          |   |
-| status        | string | `NEW`                  | The state of the order.Possible values include `NEW`, `PARTIALLY_FILLED`, `FILLED`, `CANCELED`, and `REJECTED`.GET |   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>orderId</td><td>long</td><td><code>150695552109032492</code></td><td>ID of the order</td><td></td></tr><tr><td>orderIdString</td><td>string</td><td>"<code>150695552109032492"</code></td><td>Character String Type Order ID (Recommended)</td><td></td></tr><tr><td>clientorderId</td><td>string</td><td><code>213443</code></td><td>Unique ID of the order.</td><td></td></tr><tr><td>symbol</td><td>string</td><td><code>BTCUSDT</code></td><td>Name of the symbol</td><td></td></tr><tr><td>price</td><td>float</td><td><code>4765.29</code></td><td>Price of the order</td><td></td></tr><tr><td>origQty</td><td>float</td><td><code>1.01</code></td><td>Quantity ordered</td><td></td></tr><tr><td>executedQty</td><td>float</td><td><code>1.01</code></td><td>Quantity of orders that has been executed</td><td></td></tr><tr><td>avgPrice</td><td>float</td><td><code>4754.24</code></td><td>Average price of filled orders.</td><td></td></tr><tr><td>type</td><td>string</td><td><code>LIMIT</code></td><td>The order type<code>LIMIT,MARKET</code></td><td></td></tr><tr><td>side</td><td>string</td><td><code>BUY</code></td><td>The order side <code>BUY,SELL</code></td><td></td></tr><tr><td>status</td><td>string</td><td><code>NEW</code></td><td>The state of the order.Possible values include <code>NEW</code>, <code>PARTIALLY_FILLED</code>, <code>FILLED</code>, <code>CANCELED</code>, and <code>REJECTED</code>.GET</td><td></td></tr><tr><td>time</td><td>string</td><td>1574327555669</td><td>Creation Time</td><td></td></tr></tbody></table>
 
 
 
@@ -867,18 +812,7 @@ Trade Id to fetch from
 
 #### **Response:**
 
-| symbol  | string  | `BTCUSDT`            | Name of the symbol            |
-| ------- | ------- | -------------------- | ----------------------------- |
-| id      | integer | `28457`              | Trade ID                      |
-| bidId   | long    | `150695552109032492` | Bid Order ID                  |
-| askId   | long    | `150695552109032492` | Ask Order ID                  |
-| price   | integer | `4.01`               | Price of the trade            |
-| qty     | float   | `12`                 | Quantiry of the trade         |
-| time    | number  | `1499865549590`      | timestamp of the trade        |
-| isBuyer | bool    | `true`               | `true`= Buyer `false`= Seller |
-| isMaker | bool    | `false`              | `true`=Maker `false`=Taker    |
-| feeCoin | string  | `ETH`                | Trading fee coin              |
-| fee     | number  | `0.001`              | Trading fee                   |
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th></tr></thead><tbody><tr><td>symbol</td><td>string</td><td><code>BTCUSDT</code></td><td>Name of the symbol</td></tr><tr><td>id</td><td>integer</td><td><code>28457</code></td><td>Trade ID</td></tr><tr><td>bidId</td><td>long</td><td><code>150695552109032492</code></td><td>Bid Order ID</td></tr><tr><td>askId</td><td>long</td><td><code>150695552109032492</code></td><td>Ask Order ID</td></tr><tr><td>price</td><td>integer</td><td><code>4.01</code></td><td>Price of the trade</td></tr><tr><td>qty</td><td>float</td><td><code>12</code></td><td>Quantiry of the trade</td></tr><tr><td>time</td><td>number</td><td><code>1499865549590</code></td><td>timestamp of the trade</td></tr><tr><td>isBuyer</td><td>bool</td><td><code>true</code></td><td><code>true</code>= Buyer <code>false</code>= Seller</td></tr><tr><td>isMaker</td><td>bool</td><td><code>false</code></td><td><code>true</code>=Maker <code>false</code>=Taker</td></tr><tr><td>feeCoin</td><td>string</td><td><code>ETH</code></td><td>Trading fee coin</td></tr><tr><td>fee</td><td>number</td><td><code>0.001</code></td><td>Trading fee</td></tr></tbody></table>
 
 
 
