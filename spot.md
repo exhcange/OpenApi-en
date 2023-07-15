@@ -498,13 +498,16 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-Batch order param
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="orders" type="number" %}
 Symbol Name. E.g. 
 
 `BTCUSDT`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="body" name="orders" type="number" %}
+The batch order information can contain a maximum of 10 records.
+
+\
+
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -527,7 +530,7 @@ Symbol Name. E.g.
 
 **weight(IP/UID): 10**
 
-#### Resquest `orders` field: <a href="#resquest-orders-field" id="resquest-orders-field"></a>
+#### Resquest <a href="#resquest-orders-field" id="resquest-orders-field"></a>
 
 <table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td>price</td><td>long</td><td>1000</td><td>Price of the order</td><td></td></tr><tr><td>volume</td><td>folat</td><td>20.1</td><td>Vol of the order</td><td></td></tr><tr><td>side</td><td>string</td><td><code>BUY/SELL</code></td><td>Side of the order</td><td></td></tr><tr><td>batchType</td><td>string</td><td><code>LIMIT/MARKET</code></td><td>Batch type of the order</td><td></td></tr></tbody></table>
 
