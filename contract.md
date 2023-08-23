@@ -939,7 +939,7 @@ time stamp
 | id                    | integer | 2       | Position id                                                               |
 | uid                   | integer | 10023   | User ID                                                                   |
 | positionType          | integer | 1       | Hold position type(1 full，2 restrictive)                                  |
-| side                  | string  | SELL    | Hold position direction SELL sell long, BUY buy short                     |
+| side                  | string  | SELL    | Hold position direction BUY sell long, SELL buy short                     |
 | volume                | float   | 1.05    | Hold quantity                                                             |
 | openPrice             | float   | 1.05    | Open position price                                                       |
 | avgPrice              | float   | 1.05    | Hold average price                                                        |
