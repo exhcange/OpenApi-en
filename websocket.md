@@ -13,19 +13,15 @@
 ### Ws information
 
 * url: <mark style="color:blue;">wss://ws.xxx.com/kline-api/ws</mark>
-* The returned data will be binary compressed except the heartbeat data (the user needs to decompress through Gzip algorithm)
+* The returned data will be binary compressed (users need to decompress it through the Gzip algorithm)
+
+### heartbeat
+
+The server actively pushes ping messages every 10 seconds, and the client can decide whether to process it after receiving it (the server does not perform strict one-to-one verification and time verification on the client's Pong reply). To ensure the validity of the link, it is recommended that the client immediately reply in Pong format after receiving the ping message from the server. Format of ping message that is sent by Server is: {"ping": timestamp (seconds)} pong message format that is replied by client is : {"pong": timestamp (seconds)} Example: {"pong":1694416595}
 
 ### Command Format 
 
-| sub   | `market_$symbol_depth_step0`  | `Subscribe depth`                       |   | 描述     |
-| ----- | ----------------------------- | --------------------------------------- | - | ------ |
-| unsub | `market_$symbol_depth_step0`  | `Unsubscribe depth`                     |   | 币对名称   |
-| sub   | `market_$symbol_trade_ticker` | `Subscribe to real-time trade`          |   | base货币 |
-| unsub | `market_$symbol_trade_ticker` | `Unsubscribe real-time trade`           |   | 计价货币   |
-| sub   | `market_$symbol_ticker`       | `Subscribe to 24h market data`          |   | 价格精度   |
-| unsub | `market_$symbol_ticker`       | `Unsubscribe 24h market data`           |   | 数量精度   |
-| sub   | `market_$symbol_kline_1min`   | `Subscribe to 1min k-line information`  |   |        |
-| reg   | `market_$symbol_kline_1month` | `Request 1 month historical bar record` |   |        |
+<table data-header-hidden><thead><tr><th>event</th><th width="313">channel</th><th width="220">description</th><th></th><th>描述</th></tr></thead><tbody><tr><td>sub</td><td><code>market_$symbol_depth_step0</code></td><td><code>Subscribe depth</code></td><td></td><td>描述</td></tr><tr><td>unsub</td><td><code>market_$symbol_depth_step0</code></td><td><code>Unsubscribe depth</code></td><td></td><td>币对名称</td></tr><tr><td>sub</td><td><code>market_$symbol_trade_ticker</code></td><td><code>Subscribe to real-time trade</code></td><td></td><td>base货币</td></tr><tr><td>unsub</td><td><code>market_$symbol_trade_ticker</code></td><td><code>Unsubscribe real-time trade</code></td><td></td><td>计价货币</td></tr><tr><td>sub</td><td><code>market_$symbol_ticker</code></td><td><code>Subscribe to 24h market data</code></td><td></td><td>价格精度</td></tr><tr><td>unsub</td><td><code>market_$symbol_ticker</code></td><td><code>Unsubscribe 24h market data</code></td><td></td><td>数量精度</td></tr><tr><td>sub</td><td><code>market_$symbol_kline_1min</code></td><td><code>Subscribe to 1min k-line information</code></td><td></td><td></td></tr><tr><td>reg</td><td><code>market_$symbol_kline_1month</code></td><td><code>Request 1 month historical bar record</code></td><td></td><td></td></tr></tbody></table>
 
 
 
