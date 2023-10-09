@@ -6,7 +6,7 @@
 
 {% swagger method="get" path="/sapi/v1/ping" baseUrl="https://openapi.xxx.com" summary=" Test Connectivity" %}
 {% swagger-description %}
- This endpoint checks connectivity to the host
+&#x20;This endpoint checks connectivity to the host
 {% endswagger-description %}
 
 {% swagger-response status="200: OK" description=" Connection normal" %}
@@ -18,7 +18,7 @@
 
 {% swagger method="get" path="/sapi/v1/time" baseUrl="https://openapi.xxx.com" summary=" Check Server Time" %}
 {% swagger-description %}
- This endpoint checks connectivity to the server and retrieves server timestamp
+&#x20;This endpoint checks connectivity to the server and retrieves server timestamp
 {% endswagger-description %}
 
 {% swagger-response status="200: OK" description=" Successfully retrieved server time" %}
@@ -98,7 +98,7 @@
 
 {% swagger method="get" path="/sapi/v1/depth" baseUrl="https://openapi.xxx.com" summary=" Depth" %}
 {% swagger-description %}
- market detpth data
+&#x20;market detpth data
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="limit" type="integer" %}
@@ -158,13 +158,11 @@ The fields bids and asks are lists of order book price level entries, sorted fro
 
 {% swagger method="get" path="/sapi/v1/ticker" baseUrl="https://openapi.xxx.com" summary=" 24hrs ticker" %}
 {% swagger-description %}
- 24 hour price change statistics.
+&#x20;24 hour price change statistics.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description=" Successfully retrieved ticker data" %}
@@ -197,9 +195,7 @@ Symbol Name. E.g.
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" %}
@@ -238,47 +234,11 @@ Default 100; Max 1000Responses200
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="symbol" type="" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="interval" required="true" %}
-Interval of the Kline. Possible values include: 
-
-`1min`
-
-,
-
-`5min`
-
-,
-
-`15min`
-
-,
-
-`30min`
-
-,
-
-`60min`
-
-,
-
-`1day`
-
-,
-
-`1week`
-
-,
-
-`1month`
-
-\
-
-
+Interval of the Kline. Possible values include: `1min`,`5min`,`15min`,`30min`,`60min`,`1day`,`1week`,`1month`\
 
 {% endswagger-parameter %}
 
@@ -332,9 +292,7 @@ Endpoints under **Trade** require an API Key and a signature
 
 {% swagger method="post" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" New Order" %}
 {% swagger-description %}
- 
-
-**Rate Limit: 100times/2s**
+&#x20;**Rate Limit: 100times/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="X-CH-SIGN" type="string" %}
@@ -350,9 +308,7 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="volume" type="number" required="true" %}
@@ -360,15 +316,11 @@ Order vol. For MARKET BUY orders, vol=amount.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" required="true" %}
-Side of the order,
-
-`BUY/SELL`
+Side of the order,`BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" required="true" %}
-Type of the order, 
-
-`LIMIT/MARKET`
+Type of the order, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="price" type="number" required="true" %}
@@ -410,7 +362,7 @@ Time window
 
 {% swagger method="post" path="/sapi/v1/order/test" baseUrl="https://openapi.xxx.com" summary=" Test New Order" %}
 {% swagger-description %}
- Test new order creation and signature/recvWindow length. Creates and validates a new order but does not send the order into the matching engine.
+&#x20;Test new order creation and signature/recvWindow length. Creates and validates a new order but does not send the order into the matching engine.
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -430,9 +382,7 @@ Time window
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="volume" type="number" required="true" %}
@@ -440,23 +390,15 @@ Order vol. For MARKET BUY orders, vol=amount.
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" required="true" %}
-Side of the order, 
-
-`BUY/SELL`
+Side of the order, `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" required="true" %}
-Type of the order, 
-
-`LIMIT/MARKET`
+Type of the order, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="price" type="number" required="true" %}
-Order price, REQUIRED for 
-
-`LIMIT`
-
- orders
+Order price, REQUIRED for `LIMIT` orders
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="newClientorderId" %}
@@ -480,9 +422,7 @@ Unique order ID generated by users to mark their orders
 
 {% swagger method="post" path="/sapi/v1/batchOrders" baseUrl="https://openapi.xxx.com" summary=" Batch Orders" %}
 {% swagger-description %}
- 
-
-**batch contains at most 10 orders**
+&#x20;**batch contains at most 10 orders**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -498,9 +438,7 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="orders" type="number" %}
@@ -529,6 +467,15 @@ The batch order information can contain a maximum of 10 records.
 {% endswagger %}
 
 **weight(IP/UID): 10**
+
+#### Resquest `orders` field:
+
+| name      | type   | Example        | Description |
+| --------- | ------ | -------------- | ----------- |
+| price     | folat  | 1000           | Price       |
+| volume    | folat  | 20.1           | Quantity    |
+| side      | String | BUY/SELL       | Direction   |
+| batchType | String | `LIMIT/MARKET` | Type        |
 
 #### Resquest <a href="#resquest-orders-field" id="resquest-orders-field"></a>
 
@@ -566,9 +513,7 @@ Client Order Id, Unique order ID generated by users to mark their orders. E.g. 3
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDl`
+Symbol Name. E.g. `BTCUSDl`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -626,9 +571,7 @@ Client Order Id, Unique order ID generated by users to mark their orders. E.g. 3
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -656,9 +599,7 @@ Symbol Name. E.g.
 
 {% swagger method="post" path="/sapi/v1/batchCancel" baseUrl="https://openapi.xxx.com" summary=" Batch cancel orders" %}
 {% swagger-description %}
- 
-
-**batch contains at most 10 orders**
+&#x20;**batch contains at most 10 orders**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -674,17 +615,11 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="orderIds" %}
-Order ID collection 
-
-`[123,456]`
-
-Responses200GET
+Order ID collection `[123,456]`Responses200GET
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -723,9 +658,7 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" %}
@@ -779,9 +712,7 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-Symbol Name. E.g. 
-
-`BTCUSDT`
+Symbol Name. E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" %}
