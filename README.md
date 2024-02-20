@@ -2,7 +2,7 @@
 
 ## API Basic Information
 
-* baseurl `https://openapi.xxx.com`
+* baseurl `https://openapi.xxx.xx`
 * All endpoints return either a JSON object or array.&#x20;
 * Data is returned in **Reverse** order. newest first, oldest last.
 * All time and timestamp related fields are in milliseconds.
