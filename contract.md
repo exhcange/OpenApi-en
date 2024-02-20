@@ -6,9 +6,9 @@
 
 Endpoints under **Public** section can be accessed freely without requiring any API-key or signatures
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/ping" method="get" summary=" Test Connectivity" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/ping" method="get" summary=" Test Connectivity" %}
 {% swagger-description %}
- This endpoint checks connectivity to the host
+&#x20;This endpoint checks connectivity to the host
 {% endswagger-description %}
 
 {% swagger-response status="200" description="" %}
@@ -20,7 +20,7 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 
 
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/time" method="get" summary="Check Server Time" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/time" method="get" summary="Check Server Time" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -42,7 +42,7 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 | serverTime | long   | 1607702400000       | server timestamp |
 | timezone   | string | China standard time | server time zone |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/contracts" path="" method="get" summary="Contract List" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/contracts" path="" method="get" summary="Contract List" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -95,9 +95,9 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 
 Market section can be accessed freely without requiring any API-key or signatures.
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/depth" path="" method="get" summary="Depth" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/depth" path="" method="get" summary="Depth" %}
 {% swagger-description %}
-Market depth data  
+Market depth data &#x20;
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="limit" type="integer" %}
@@ -153,7 +153,7 @@ The fields bids and asks are lists of order book price level entries, sorted fro
 | ' '  | float | `131.1` | price level                               |
 | ' '  | float | `2.3`   | Total order quantity for this price level |
 
-{% swagger baseUrl="https://futuersopenapi.xxx.com /fapi/v1/ticker" path="" method="get" summary="24hrs ticker" %}
+{% swagger baseUrl="https://futuersopenapi.xxx.xx/fapi/v1/ticker" path="" method="get" summary="24hrs ticker" %}
 {% swagger-description %}
 24 hour price change statistics
 {% endswagger-description %}
@@ -187,7 +187,7 @@ Contract  name E.g. E-BTC-USDT
 | vol  | float  | `4999`          | Trade volume    |
 | rose | string | +0.5            | Price variation |
 
-{% swagger baseUrl="https://futuersopenapi.xxx.com /fapi/v1/index" path="" method="get" summary="Get index/marked price" %}
+{% swagger baseUrl="https://futuersopenapi.xxx.xx/fapi/v1/index" path="" method="get" summary="Get index/marked price" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -222,7 +222,7 @@ Default 100, Max 100
 | `contractName`    | string | `E-BTC-USDT` | Contract name     |
 | `lastFundingRate` | float  | `0.123`      | Current fund rate |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/klines" path="" method="get" summary="Kline/charts data" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/klines" path="" method="get" summary="Kline/charts data" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -232,37 +232,7 @@ Contract name E.g. E-BTC-USDT
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="interval" type="string" %}
-K-line interval, identifies the sent value as: 
-
-`1min`
-
-,
-
-`5min`
-
-,
-
-`15min`
-
-,
-
-`30min`
-
-,
-
-`1h`
-
-,
-
-`1day`
-
-,
-
-`1week`
-
-,
-
-`1month`
+K-line interval, identifies the sent value as: `1min`,`5min`,`15min`,`30min`,`1h`,`1day`,`1week`,`1month`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" type="integer" %}
@@ -318,7 +288,7 @@ Default 100, Max 300
 
 &#x20;All interfaces under the transaction require [signature and API-key verification​](https://exdocs.gitbook.io/v/v/english/general-info#signed-trade-yu-userdata-endpoint-security)
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/order" path="" method="post" summary="Order creation" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/order" path="" method="post" summary="Order creation" %}
 {% swagger-description %}
 Creation of single new orders
 {% endswagger-description %}
@@ -344,33 +314,23 @@ Order price
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. 
-
-`E-BTC-USDT`
+Contract name E.g. `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" type="string" %}
-Order type, 
-
-`LIMIT/MARKET`
+Order type, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" type="string" %}
-trade direction, 
-
-`BUY/SELL`
+trade direction, `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="open" type="string" %}
-Open balancing direction, 
-
-`OPEN/CLOSE`
+Open balancing direction, `OPEN/CLOSE`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="positionType" type="number" %}
-Hold-up position, 
-
-`1 full position, 2 restrictive position`
+Hold-up position, `1 full position, 2 restrictive position`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="clientOrderId" type="string" %}
@@ -396,7 +356,7 @@ Client order identity, a string with length less than 32 bit
 | ------- | ------ | -------------------- | ----------- |
 | orderId | String | `256609229205684228` | Order ID    |
 
-{% swagger method="post" path="" baseUrl="https://futuresopenapi.xxx.com /fapi/v1/conditionOrder" summary="Condition order creation" %}
+{% swagger method="post" path="" baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/conditionOrder" summary="Condition order creation" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -422,33 +382,23 @@ Order price
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. 
-
-`E-BTC-USDT`
+Contract name E.g. `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" type="string" %}
-Order type, 
-
-`LIMIT/MARKET`
+Order type, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" type="string" %}
-trade direction, 
-
-`BUY/SELL`
+trade direction, `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="open" type="string" %}
-Open balancing direction, 
-
-`OPEN/CLOSE`
+Open balancing direction, `OPEN/CLOSE`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="positionType" type="number" %}
-Hold-up position, 
-
-`1 full position, 2 restrictive position`
+Hold-up position, `1 full position, 2 restrictive position`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="triggerPrice" type="string" %}
@@ -456,9 +406,7 @@ trigger price
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="triggerType" type="string" %}
-trigger type 
-
-`3UP/4DOWN`
+trigger type `3UP/4DOWN`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -470,7 +418,7 @@ trigger type
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/cancel" path="" method="post" summary="Cancel order" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/cancel" path="" method="post" summary="Cancel order" %}
 {% swagger-description %}
 Speed limit rules: 20 times/ 2 seconds
 {% endswagger-description %}
@@ -488,9 +436,7 @@ Time stamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. 
-
-`E-BTC-USDT`
+Contract name E.g. `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="orderId" type="string" %}
@@ -506,7 +452,7 @@ Order ID
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/order" path="" method="get" summary="Order details" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/order" path="" method="get" summary="Order details" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -554,13 +500,9 @@ Order ID
 | `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                                                                                                          |
 | `transactTime` | long   | `1607702400000`      | Order creation time                                                                                                                                                                   |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/openOrders" path="" method="get" summary="Open order" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/openOrders" path="" method="get" summary="Open order" %}
 {% swagger-description %}
-**Speed limit rules:**
-
-\
-
-
+**Speed limit rules:**\
 **Obtain open contract, the user's current order**
 {% endswagger-description %}
 
@@ -577,9 +519,7 @@ time stamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
-Contract name 
-
-`E-BTC-USDT`
+Contract name `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -620,7 +560,7 @@ Contract name
 | `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                                                                                                          |
 | `transactTime` | long   | `1607702400000`      | Order creation time,                                                                                                                                                                  |
 
-{% swagger method="post" path="/fapi/v1/orderHistorical" baseUrl="https://futuresopenapi.xxx.com" summary="order history" %}
+{% swagger method="post" path="/fapi/v1/orderHistorical" baseUrl="https://futuresopenapi.xxx.xx" summary="order history" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -680,7 +620,7 @@ Start retrieving from this Id
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="post" path="fapi/v1/profitHistorical" baseUrl="https://futuresopenapi.xxx.com/" summary="profit history" %}
+{% swagger method="post" path="fapi/v1/profitHistorical" baseUrl="https://futuresopenapi.xxx.xx/" summary="profit history" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -738,7 +678,7 @@ Start retrieving from this Id
 
 
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/myTrades" path="" method="get" summary="Order record" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/myTrades" path="" method="get" summary="Order record" %}
 {% swagger-description %}
 
 {% endswagger-description %}
