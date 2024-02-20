@@ -12,7 +12,7 @@
 
 ### Ws information
 
-* url: <mark style="color:blue;">wss://ws.xxx.com/kline-api/ws</mark>
+* url: <mark style="color:blue;">wss://ws.xxx.</mark><mark style="color:blue;">xx/kline-api/ws</mark>
 * The returned data will be binary compressed (users need to decompress it through the Gzip algorithm)
 
 ### heartbeat
