@@ -1,6 +1,6 @@
 # Withdraw
 
-{% swagger method="post" path="/sapi/v1/withdraw/apply" baseUrl="https://openapi.xxx.com" summary="Apply for withdrawal" %}
+{% swagger method="post" path="/sapi/v1/withdraw/apply" baseUrl="https://openapi.xxx.xx" summary="Apply for withdrawal" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -18,11 +18,7 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" %}
-currency name，For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in 
-
-[Appendix 1](appendix-1.md)
-
-
+currency name，For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in [Appendix 1](appendix-1.md)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="withdrawOrderId" required="true" type="String" %}
@@ -56,7 +52,7 @@ Some currencies such as XRP, XMR allow filling of secondary address labels
 
 **weight(IP/UID): 100**
 
-{% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.com" summary="Withdrawal record query" %}
+{% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.xx" summary="Withdrawal record query" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -74,11 +70,7 @@ timestamp
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" type="String" %}
-Currency Name, For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in 
-
-[Appendix 1](appendix-1.md)
-
-
+Currency Name, For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in [Appendix 1](appendix-1.md)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="withdrawId" type="String" %}
