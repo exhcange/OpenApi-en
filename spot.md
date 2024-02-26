@@ -246,6 +246,14 @@ Interval of the Kline. Possible values include: `1min`,`5min`,`15min`,`30min`,`6
 Default 100; Max 300Responses200
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="startTime" type="long" %}
+startTime  example:`1538728740000`
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="endTime" type="long" %}
+endTime example:`1538728740000`
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="" %}
 ```javascript
 [
