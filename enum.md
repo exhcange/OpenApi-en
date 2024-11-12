@@ -39,8 +39,4 @@ min -> minutes; h -> hours; day -> days; week -> weeks; month -> months
 * `1week`
 * `1month`
 
-{% swagger method="get" path="" baseUrl="" summary="" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:blue;">`GET`</mark>&#x20;

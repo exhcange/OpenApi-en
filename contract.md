@@ -6,34 +6,36 @@
 
 Endpoints under **Public** section can be accessed freely without requiring any API-key or signatures
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/ping" method="get" summary=" Test Connectivity" %}
-{% swagger-description %}
-&#x20;This endpoint checks connectivity to the host
-{% endswagger-description %}
+## &#x20;Test Connectivity
 
-{% swagger-response status="200" description="" %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/ping`
+
+&#x20;This endpoint checks connectivity to the host
+
+{% tabs %}
+{% tab title="200 " %}
 ```
 {}
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/time" method="get" summary="Check Server Time" %}
-{% swagger-description %}
+## Check Server Time
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/time`
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 {
     "serverTime":1607702400000,
     "timezone":Chinese standard time
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### Response:
 
@@ -42,12 +44,12 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 | serverTime | long   | 1607702400000       | server timestamp |
 | timezone   | string | China standard time | server time zone |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/contracts" path="" method="get" summary="Contract List" %}
-{% swagger-description %}
+## Contract List
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/contracts`
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 [
     {
@@ -68,8 +70,8 @@ Endpoints under **Public** section can be accessed freely without requiring any 
     }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### Response: <a href="#response-1" id="response-1"></a>
 
@@ -95,20 +97,21 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 
 Market section can be accessed freely without requiring any API-key or signatures.
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/depth" path="" method="get" summary="Depth" %}
-{% swagger-description %}
+## Depth
+
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/depth`
+
 Market depth data &#x20;
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
-Default 100, Max 100
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="Contract name" type="string" %}
-Contract Name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+| Name          | Type    | Description                   |
+| ------------- | ------- | ----------------------------- |
+| limit         | integer | Default 100, Max 100          |
+| Contract name | string  | Contract Name E.g. E-BTC-USDT |
 
-{% swagger-response status="200" description="Successfully retrieve market depth data" %}
+{% tabs %}
+{% tab title="200 Successfully retrieve market depth data" %}
 ```java
 {
   "bids": [
@@ -133,8 +136,8 @@ Contract Name E.g. E-BTC-USDT
   ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 
 
@@ -153,16 +156,20 @@ The fields bids and asks are lists of order book price level entries, sorted fro
 | ' '  | float | `131.1` | price level                               |
 | ' '  | float | `2.3`   | Total order quantity for this price level |
 
-{% swagger baseUrl="https://futuersopenapi.xxx.xx/fapi/v1/ticker" path="" method="get" summary="24hrs ticker" %}
-{% swagger-description %}
+## 24hrs ticker
+
+<mark style="color:blue;">`GET`</mark> `https://futuersopenapi.xxx.xx/fapi/v1/ticker`
+
 24 hour price change statistics
-{% endswagger-description %}
 
-{% swagger-parameter in="query" name="Contract name" type="string" %}
-Contract  name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-response status="200" description="Successfully obtain ticker info" %}
+| Name          | Type   | Description                    |
+| ------------- | ------ | ------------------------------ |
+| Contract name | string | Contract  name E.g. E-BTC-USDT |
+
+{% tabs %}
+{% tab title="200 Successfully obtain ticker info" %}
 ```java
 {
     "high": "9279.0301",
@@ -173,8 +180,8 @@ Contract  name E.g. E-BTC-USDT
     "time": 1595563624731
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### Response:
 
@@ -187,20 +194,19 @@ Contract  name E.g. E-BTC-USDT
 | vol  | float  | `4999`          | Trade volume    |
 | rose | string | +0.5            | Price variation |
 
-{% swagger baseUrl="https://futuersopenapi.xxx.xx/fapi/v1/index" path="" method="get" summary="Get index/marked price" %}
-{% swagger-description %}
+## Get index/marked price
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuersopenapi.xxx.xx/fapi/v1/index`
 
-{% swagger-parameter in="query" name="Contract name" type="string" %}
-Contract name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="limit" type="string" %}
-Default 100, Max 100
-{% endswagger-parameter %}
+| Name          | Type   | Description                   |
+| ------------- | ------ | ----------------------------- |
+| Contract name | string | Contract name E.g. E-BTC-USDT |
+| limit         | string | Default 100, Max 100          |
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 {
     "markPrice": 581.5,
@@ -210,8 +216,8 @@ Default 100, Max 100
     "time": 1608273554063
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### **Response:**
 
@@ -222,24 +228,20 @@ Default 100, Max 100
 | `contractName`    | string | `E-BTC-USDT` | Contract name     |
 | `lastFundingRate` | float  | `0.123`      | Current fund rate |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/klines" path="" method="get" summary="Kline/charts data" %}
-{% swagger-description %}
+## Kline/charts data
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/klines`
 
-{% swagger-parameter in="query" name="ContractName" type="string" %}
-Contract name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="query" name="interval" type="string" %}
-K-line interval, identifies the sent value as: `1min`,`5min`,`15min`,`30min`,`1h`,`1day`,`1week`,`1month`
-{% endswagger-parameter %}
+| Name         | Type    | Description                                                                                               |
+| ------------ | ------- | --------------------------------------------------------------------------------------------------------- |
+| ContractName | string  | Contract name E.g. E-BTC-USDT                                                                             |
+| interval     | string  | K-line interval, identifies the sent value as: `1min`,`5min`,`15min`,`30min`,`1h`,`1day`,`1week`,`1month` |
+| limit        | integer | Default 100, Max 300                                                                                      |
 
-{% swagger-parameter in="query" name="limit" type="integer" %}
-Default 100, Max 300
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 [
     {
@@ -268,8 +270,8 @@ Default 100, Max 300
     }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### **Response:**
 
@@ -288,67 +290,43 @@ Default 100, Max 300
 
 &#x20;All interfaces under the transaction require [signature and API-key verification​](https://exdocs.gitbook.io/v/v/english/general-info#signed-trade-yu-userdata-endpoint-security)
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/order" path="" method="post" summary="Order creation" %}
-{% swagger-description %}
+## Order creation
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/order`
+
 Creation of single new orders
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-TS" type="string" %}
-Time stamp
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name        | Type   | Description  |
+| ----------- | ------ | ------------ |
+| X-CH-TS     | string | Time stamp   |
+| X-CH-APIKEY | string | Your API-key |
+| X-CH-SIGN   | string | Signature    |
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-Signature
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="volume" type="number" %}
-Order quantity
-{% endswagger-parameter %}
+| Name          | Type   | Description                                                  |
+| ------------- | ------ | ------------------------------------------------------------ |
+| volume        | number | Order quantity                                               |
+| price         | number | Order price                                                  |
+| contractName  | string | Contract name E.g. `E-BTC-USDT`                              |
+| type          | string | Order type, `LIMIT/MARKET`                                   |
+| side          | string | trade direction, `BUY/SELL`                                  |
+| open          | string | Open balancing direction, `OPEN/CLOSE`                       |
+| positionType  | number | Hold-up position, `1 full position, 2 restrictive position`  |
+| clientOrderId | string | Client order identity, a string with length less than 32 bit |
+| timeInForce   | string | `IOC, FOK, POST_ONLY`                                        |
 
-{% swagger-parameter in="body" name="price" type="number" %}
-Order price
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. `E-BTC-USDT`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="type" type="string" %}
-Order type, `LIMIT/MARKET`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="side" type="string" %}
-trade direction, `BUY/SELL`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="open" type="string" %}
-Open balancing direction, `OPEN/CLOSE`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="positionType" type="number" %}
-Hold-up position, `1 full position, 2 restrictive position`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="clientOrderId" type="string" %}
-Client order identity, a string with length less than 32 bit
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="timeInForce" type="string" %}
-`IOC, FOK, POST_ONLY`
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 {
     "orderId": 256609229205684228
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### Response:
 
@@ -356,112 +334,85 @@ Client order identity, a string with length less than 32 bit
 | ------- | ------ | -------------------- | ----------- |
 | orderId | String | `256609229205684228` | Order ID    |
 
-{% swagger method="post" path="" baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/conditionOrder" summary="Condition order creation" %}
-{% swagger-description %}
+## Condition order creation
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/conditionOrder`
 
-{% swagger-parameter in="header" name="X-CH-TS" type="string" %}
-Time stamp
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name        | Type   | Description  |
+| ----------- | ------ | ------------ |
+| X-CH-TS     | string | Time stamp   |
+| X-CH-APIKEY | string | Your API-key |
+| X-CH-SIGN   | string | Signature    |
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-Signature
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="volume" type="number" %}
-Order quantity
-{% endswagger-parameter %}
+| Name         | Type   | Description                                                 |
+| ------------ | ------ | ----------------------------------------------------------- |
+| volume       | number | Order quantity                                              |
+| triggerType  | string | trigger type `3UP/4DOWN`                                    |
+| triggerPrice | string | trigger price                                               |
+| positionType | number | Hold-up position, `1 full position, 2 restrictive position` |
+| open         | string | Open balancing direction, `OPEN/CLOSE`                      |
+| side         | string | trade direction, `BUY/SELL`                                 |
+| type         | string | Order type, `LIMIT/MARKET`                                  |
+| contractName | string | Contract name E.g. `E-BTC-USDT`                             |
+| price        | number | Order price                                                 |
 
-{% swagger-parameter in="body" name="price" type="number" %}
-Order price
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. `E-BTC-USDT`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="type" type="string" %}
-Order type, `LIMIT/MARKET`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="side" type="string" %}
-trade direction, `BUY/SELL`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="open" type="string" %}
-Open balancing direction, `OPEN/CLOSE`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="positionType" type="number" %}
-Hold-up position, `1 full position, 2 restrictive position`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="triggerPrice" type="string" %}
-trigger price
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="triggerType" type="string" %}
-trigger type `3UP/4DOWN`
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 {
      "orderId": 256609229205684228
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/cancel" path="" method="post" summary="Cancel order" %}
-{% swagger-description %}
+## Cancel order
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/cancel`
+
 Speed limit rules: 20 times/ 2 seconds
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-Signature
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name        | Type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | Signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | Time stamp   |
 
-{% swagger-parameter in="header" name="X-CH-TS" type="integer" %}
-Time stamp
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. `E-BTC-USDT`
-{% endswagger-parameter %}
+| Name         | Type   | Description                     |
+| ------------ | ------ | ------------------------------- |
+| contractName | string | Contract name E.g. `E-BTC-USDT` |
+| orderId      | string | Order ID                        |
 
-{% swagger-parameter in="body" name="orderId" type="string" %}
-Order ID
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 {
     "orderId": 256609229205684228
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/order" path="" method="get" summary="Order details" %}
-{% swagger-description %}
+## Order details
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/order`
 
-{% swagger-parameter in="body" name="contractName" type="string" %}
+#### Request Body
 
-{% endswagger-parameter %}
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| contractName | string |             |
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```
 [
     {
@@ -481,8 +432,8 @@ Order ID
 
 
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### Response:
 
@@ -500,29 +451,29 @@ Order ID
 | `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                                                                                                          |
 | `transactTime` | long   | `1607702400000`      | Order creation time                                                                                                                                                                   |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/openOrders" path="" method="get" summary="Open order" %}
-{% swagger-description %}
+## Open order
+
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/openOrders`
+
 **Speed limit rules:**\
 **Obtain open contract, the user's current order**
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-signature
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name         | Type   | Description                |
+| ------------ | ------ | -------------------------- |
+| contractName | string | Contract name `E-BTC-USDT` |
 
-{% swagger-parameter in="header" name="X-CH-TS" type="integer" %}
-time stamp
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="query" name="contractName" type="string" %}
-Contract name `E-BTC-USDT`
-{% endswagger-parameter %}
+| Name        | Type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | time stamp   |
 
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 [
     {
@@ -541,8 +492,8 @@ Contract name `E-BTC-USDT`
 ]
 
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### **Response:**
 
@@ -560,36 +511,28 @@ Contract name `E-BTC-USDT`
 | `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                                                                                                          |
 | `transactTime` | long   | `1607702400000`      | Order creation time,                                                                                                                                                                  |
 
-{% swagger method="post" path="/fapi/v1/orderHistorical" baseUrl="https://futuresopenapi.xxx.xx" summary="order history" %}
-{% swagger-description %}
+## order history
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/orderHistorical`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-signature
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name        | Type   | Description  |
+| ----------- | ------ | ------------ |
+| X-CH-SIGN   | string | signature    |
+| X-CH-APIKEY | string | Your API-key |
+| X-CH-TS     | string | time stamp   |
 
-{% swagger-parameter in="header" name="X-CH-TS" type="string" %}
-time stamp
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+| Name         | Type   | Description                           |
+| ------------ | ------ | ------------------------------------- |
+| contractName | string | Contract name E.g. E-BTC-USDT         |
+| limit        | string | Lines per page, default 100, max 1000 |
+| fromId       | long   | Start retrieving from this Id         |
 
-{% swagger-parameter in="body" name="limit" type="string" %}
-Lines per page, default 100, max 1000
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="fromId" type="long" %}
-Start retrieving from this Id
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 [
     {
@@ -617,39 +560,31 @@ Start retrieving from this Id
     }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
-{% swagger method="post" path="fapi/v1/profitHistorical" baseUrl="https://futuresopenapi.xxx.xx/" summary="profit history" %}
-{% swagger-description %}
+## profit history
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/profitHistorical`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-signature
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name        | Type   | Description  |
+| ----------- | ------ | ------------ |
+| X-CH-SIGN   | string | signature    |
+| X-CH-APIKEY | string | Your API-key |
+| X-CH-TS     | string | time stamp   |
 
-{% swagger-parameter in="header" name="X-CH-TS" type="string" %}
-time stamp
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="contractName" type="string" %}
-Contract name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+| Name         | Type   | Description                           |
+| ------------ | ------ | ------------------------------------- |
+| contractName | string | Contract name E.g. E-BTC-USDT         |
+| limit        | string | Lines per page, default 100, max 1000 |
+| fromId       | long   | Start retrieving from this Id         |
 
-{% swagger-parameter in="body" name="limit" type="string" %}
-Lines per page, default 100, max 1000
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="fromId" type="long" %}
-Start retrieving from this Id
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 [
     {
@@ -673,41 +608,33 @@ Start retrieving from this Id
     }
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 
 
-{% swagger baseUrl="https://futuresopenapi.xxx.xx/fapi/v1/myTrades" path="" method="get" summary="Order record" %}
-{% swagger-description %}
+## Order record
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/myTrades`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-signature
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name         | Type   | Description                           |
+| ------------ | ------ | ------------------------------------- |
+| contractName | string | Contract name E.g. E-BTC-USDT         |
+| limit        | string | Lines per page, default 100, max 1000 |
+| fromId       | long   | Start retrieving from this tradeId    |
 
-{% swagger-parameter in="header" name="X-CH-TS" type="string" %}
-time stamp
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="query" name="contractName" type="string" %}
-Contract name E.g. E-BTC-USDT
-{% endswagger-parameter %}
+| Name        | Type   | Description  |
+| ----------- | ------ | ------------ |
+| X-CH-SIGN   | string | signature    |
+| X-CH-APIKEY | string | Your API-key |
+| X-CH-TS     | string | time stamp   |
 
-{% swagger-parameter in="query" name="limit" type="string" %}
-Lines per page, default 100, max 1000
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="fromId" type="long" %}
-Start retrieving from this tradeId
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 [
   {
@@ -724,8 +651,8 @@ Start retrieving from this tradeId
   },...
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### **Response:** <a href="#response-9" id="response-9"></a>
 
@@ -753,24 +680,20 @@ Start retrieving from this tradeId
 
 All interfaces under the account require [signature and API-key verification​](https://exdocs.gitbook.io/v/v/english/general-info#signed-trade-yu-userdata-endpoint-security)
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com /fapi/v1/account" path="" method="get" summary="Account info" %}
-{% swagger-description %}
+## Account info
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.com /fapi/v1/account`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
-Signature
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
-Your API-key
-{% endswagger-parameter %}
+| Name        | Type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | Signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | time stamp   |
 
-{% swagger-parameter in="header" name="X-CH-TS" type="integer" %}
-time stamp
-{% endswagger-parameter %}
-
-{% swagger-response status="200" description="" %}
+{% tabs %}
+{% tab title="200 " %}
 ```java
 {
     "account": [
@@ -836,8 +759,8 @@ time stamp
     ]
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 #### Response: <a href="#response-10" id="response-10"></a>
 

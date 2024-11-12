@@ -1,43 +1,29 @@
 # Withdraw
 
-{% swagger method="post" path="/sapi/v1/withdraw/apply" baseUrl="https://openapi.xxx.xx" summary="Apply for withdrawal" %}
-{% swagger-description %}
+## Apply for withdrawal
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/withdraw/apply`
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" required="true" type="String" %}
-Your API-key
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-SIGN" required="true" type="String" %}
-Sign
-{% endswagger-parameter %}
+| Name                                          | Type    | Description  |
+| --------------------------------------------- | ------- | ------------ |
+| X-CH-APIKEY<mark style="color:red;">\*</mark> | String  | Your API-key |
+| X-CH-SIGN<mark style="color:red;">\*</mark>   | String  | Sign         |
+| X-CH-TS<mark style="color:red;">\*</mark>     | Integer | timestamp    |
 
-{% swagger-parameter in="header" name="X-CH-TS" required="true" type="Integer" %}
-timestamp
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="symbol" %}
-currency name，For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in [Appendix 1](appendix-1.md)
-{% endswagger-parameter %}
+| Name                                              | Type   | Description                                                                                                                                         |
+| ------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| withdrawOrderId<mark style="color:red;">\*</mark> | String | Custom withdrawal id, guaranteed to be unique                                                                                                       |
+| amount<mark style="color:red;">\*</mark>          | String | quantity                                                                                                                                            |
+| address<mark style="color:red;">\*</mark>         | String | Withdrawal address                                                                                                                                  |
+| label                                             | String | Some currencies such as XRP, XMR allow filling of secondary address labels                                                                          |
+| symbol                                            | String | currency name，For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in [Appendix 1](appendix-1.md) |
 
-{% swagger-parameter in="body" name="withdrawOrderId" required="true" type="String" %}
-Custom withdrawal id, guaranteed to be unique
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="amount" required="true" type="String" %}
-quantity
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="address" required="true" type="String" %}
-Withdrawal address
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="label" type="String" %}
-Some currencies such as XRP, XMR allow filling of secondary address labels
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
     "code":"Ѳ",//Return code, 0 for success, other failures
@@ -47,53 +33,36 @@ Some currencies such as XRP, XMR allow filling of secondary address labels
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **weight(IP/UID): 100**
 
-{% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.xx" summary="Withdrawal record query" %}
-{% swagger-description %}
+## Withdrawal record query
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/withdraw/query`
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" required="true" type="String" %}
-Your API-key
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-SIGN" required="true" type="String" %}
-Sign
-{% endswagger-parameter %}
+| Name                                          | Type   | Description  |
+| --------------------------------------------- | ------ | ------------ |
+| X-CH-APIKEY<mark style="color:red;">\*</mark> | String | Your API-key |
+| X-CH-SIGN<mark style="color:red;">\*</mark>   | String | Sign         |
+| X-CH-TS<mark style="color:red;">\*</mark>     | String | timestamp    |
 
-{% swagger-parameter in="header" name="X-CH-TS" required="true" type="String" %}
-timestamp
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="symbol" type="String" %}
-Currency Name, For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in [Appendix 1](appendix-1.md)
-{% endswagger-parameter %}
+| Name            | Type   | Description                                                                                                                                          |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| symbol          | String | Currency Name, For coins that support multiple mainchains, the actual currency name needs to be transmitted, as shown in [Appendix 1](appendix-1.md) |
+| withdrawId      | String | Platform withdrawal id                                                                                                                               |
+| withdrawOrderId | String | Custom withdrawal id                                                                                                                                 |
+| startTime       | String | Start time, timestamp, default 90 days ago                                                                                                           |
+| endTime         | String | end time, timestamp, default current time                                                                                                            |
+| page            | String | Page number, starting at 1                                                                                                                           |
 
-{% swagger-parameter in="body" name="withdrawId" type="String" %}
-Platform withdrawal id
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="withdrawOrderId" type="String" %}
-Custom withdrawal id
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="startTime" type="String" %}
-Start time, timestamp, default 90 days ago
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="endTime" type="String" %}
-end time, timestamp, default current time
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="page" type="String" %}
-Page number, starting at 1
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
     "code": "0",
@@ -131,8 +100,8 @@ Page number, starting at 1
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **weight(IP/UID): 100**
 
