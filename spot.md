@@ -50,9 +50,9 @@
             "pricePrecision": 6,
             "baseAsset": "SCCA",
             "quoteAsset": "DAI",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+             "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 8,
@@ -60,9 +60,9 @@
             "pricePrecision": 2,
             "baseAsset": "BTC",
             "quoteAsset": "USDT",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 3,
@@ -70,9 +70,9 @@
             "pricePrecision": 2,
             "baseAsset": "BCH",
             "quoteAsset": "USDT",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 2,
@@ -80,9 +80,9 @@
             "pricePrecision": 2,
             "baseAsset": "ETC",
             "quoteAsset": "USDT",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 2,
@@ -90,9 +90,9 @@
             "pricePrecision": 6,
             "baseAsset": "LTC",
             "quoteAsset": "BTC",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         }
     ]
 }
@@ -104,15 +104,15 @@
 
 #### Response: <a href="#bi-dui-lie-biao" id="bi-dui-lie-biao"></a>
 
-| symbol            | string     | `BTCUSDT` | Name of the symbol                      |   | Currency to name  |
-| ----------------- | ---------- | --------- | --------------------------------------- | - | ----------------- |
-| baseAsset         | string     | `BTC`     | Underlying asset for the symbol         |   | base currency     |
-| quoteAsset        | string     | `USDT`    | Quote asset for the symbol              |   | The base currency |
-| pricePrecision    | integer    | `2`       | Precision of the price                  |   | Price Accuracy    |
-| quantityPrecision | integer    | `6`       | Precision of the quantity               |   | Quantity accuracy |
-| limitAmountMin    | BigDecimal | 100       | Limit order minimum order amount quote  |   |                   |
-| limitPriceMin     | BigDecimal | 100       | Minimum price of a limit order          |   |                   |
-| limitVolumeMin    | BigDecimal | 100       | Limit order minimum order quantity base |   |                   |
+| symbol            | string  | `BTCUSDT` | Name of the symbol                      |   | Currency to name  |
+| ----------------- | ------- | --------- | --------------------------------------- | - | ----------------- |
+| baseAsset         | string  | `BTC`     | Underlying asset for the symbol         |   | base currency     |
+| quoteAsset        | string  | `USDT`    | Quote asset for the symbol              |   | The base currency |
+| pricePrecision    | integer | `2`       | Precision of the price                  |   | Price Accuracy    |
+| quantityPrecision | integer | `6`       | Precision of the quantity               |   | Quantity accuracy |
+| limitAmountMin    | String  | 100       | Limit order minimum order amount quote  |   |                   |
+| limitPriceMin     | String  | 100       | Minimum price of a limit order          |   |                   |
+| limitVolumeMin    | String  | 100       | Limit order minimum order quantity base |   |                   |
 
 ## Market
 
