@@ -113,6 +113,9 @@
 | limitAmountMin    | String  | 100       | Limit order minimum order amount quote  |   |                   |
 | limitPriceMin     | String  | 100       | Minimum price of a limit order          |   |                   |
 | limitVolumeMin    | String  | 100       | Limit order minimum order quantity base |   |                   |
+| baseAssetName     | String  | BTC       | Base Currency Display Name              |   |                   |
+| quoteAssetName    | String  | USDT      | Quote Currency Display Name             |   |                   |
+| SymbolName        | String  | BTC/USDT  | Trading Pair Display Name               |   |                   |
 
 ## Market
 
