@@ -279,25 +279,28 @@ The fields bids and asks are lists of order book price level entries, sorted fro
         "high": "6228.77",
         "vol": "111",
         "low": "6228.77",
-        "idx": 1594640340,
+        "idx": 1538728740000,
         "close": "6228.77",
-        "open": "6228.77"
+        "open": "6228.77",
+        "id":1538728740
     },
     {
         "high": "6228.77",
         "vol": "222",
         "low": "6228.77",
-        "idx": 1587632160,
+        "idx": 1538728740000,
         "close": "6228.77",
-        "open": "6228.77"
+        "open": "6228.77",
+        "id":1538728740
     },
     {
         "high": "6228.77",
         "vol": "333",
         "low": "6228.77",
-        "idx": 1587632100,
+        "idx": 1538728740000,
         "close": "6228.77",
-        "open": "6228.77"
+        "open": "6228.77",
+        "id":1538728740
     }
 ]
 ```
@@ -308,7 +311,7 @@ The fields bids and asks are lists of order book price level entries, sorted fro
 
 #### Response:
 
-<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td><code>idx</code></td><td>long</td><td><code>1538728740000</code></td><td>Open time</td><td></td></tr><tr><td>open</td><td>float</td><td><code>36.00000</code></td><td>open price</td><td></td></tr><tr><td>close</td><td>float</td><td><code>33.00000</code></td><td>close price</td><td></td></tr><tr><td>high</td><td>float</td><td><code>36.00000</code></td><td>high price</td><td></td></tr><tr><td>low</td><td>float</td><td><code>30.00000</code></td><td>low price</td><td></td></tr><tr><td>vol</td><td>float</td><td><code>2456.111</code></td><td>volume</td><td></td></tr></tbody></table>
+<table data-header-hidden><thead><tr><th>name</th><th width="150">type</th><th>example</th><th>description</th><th></th></tr></thead><tbody><tr><td><code>idx</code></td><td>long</td><td><code>1538728740000</code></td><td>Open time（ms）</td><td></td></tr><tr><td>open</td><td>float</td><td><code>36.00000</code></td><td>open price</td><td></td></tr><tr><td>close</td><td>float</td><td><code>33.00000</code></td><td>close price</td><td></td></tr><tr><td>high</td><td>float</td><td><code>36.00000</code></td><td>high price</td><td></td></tr><tr><td>low</td><td>float</td><td><code>30.00000</code></td><td>low price</td><td></td></tr><tr><td>vol</td><td>float</td><td><code>2456.111</code></td><td>volume</td><td></td></tr><tr><td>id</td><td>long</td><td><code>1538728740</code></td><td>Open time（seconds）</td><td></td></tr></tbody></table>
 
 ### Trade
 
