@@ -1,12 +1,14 @@
 # Table of contents
 
 * [OpenApi Basic Information](README.md)
+* [CHANGELOG](changelog.md)
 * [ENUM](enum.md)
 * [Spot](spot.md)
 * [Margin](margin.md)
-* [Contract](contract.md)
+* [Futures](futures.md)
 * [Withdraw](withdraw.md)
 * [WebSocket](websocket.md)
+* [Websocket-Futures Orders Position](websocket-futures-orders-position.md)
 * [Errors](errors.md)
 * [Official SDK](official-sdk.md)
 * [FAQ](faq.md)

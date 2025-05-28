@@ -33,7 +33,7 @@ We recommend attaching Content-Type to all request headers and setting it to app
 
 There are restrictions. For details, see the access frequency restrictions for each interface in the document.
 
-### What is the limit on API access frequency**？** <a href="#what-is-the-limit-on-api-access-frequency" id="what-is-the-limit-on-api-access-frequency"></a>
+### What is the limit on API access frequenc&#x79;**？** <a href="#what-is-the-limit-on-api-access-frequency" id="what-is-the-limit-on-api-access-frequency"></a>
 
 Personal data is restricted according to API-key, and public data is restricted according to ip. It should be noted that if the user requests public data and passes in valid personal information, it is restricted according to API-key.
 
