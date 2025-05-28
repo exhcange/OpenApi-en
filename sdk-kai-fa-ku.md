@@ -1,61 +1,14 @@
-# Official SDK
+# SDK开发库
 
-### Demo Url
+### Demo地址
 
 [https://github.com/exchange2021](https://github.com/exchange2021)
 
 
 
-### Signed example
+### 下面是创建订单的样例
 
-```java
-/**
- * generate sign
- **/
-private String toSign(String timestamp, String method, String requestPath,
-                             String queryString, String body, String secretKey) throws Exception {
-    // sign
-    String preHash = preHash(timestamp, method, requestPath, queryString, body);
-    byte[] secretKeyBytes = secretKey.getBytes("UTF-8");
-    SecretKeySpec secretKeySpec = new SecretKeySpec(secretKeyBytes, "HmacSHA256");
-    Mac mac = (Mac) MAC.clone();
-    mac.init(secretKeySpec);
-    return Hex.encodeHexString(mac.doFinal(preHash.getBytes("UTF-8")));
-}
-
-/**
- * sign
- **/
-private String preHash(String timestamp, String method, String requestPath, String queryString, String body) {
-                                 
-    StringBuilder preHash = new StringBuilder();
-    preHash.append(timestamp);
-    preHash.append(method.toUpperCase());
-    preHash.append(requestPath);
-    if (org.apache.commons.lang3.StringUtils.isNotEmpty(queryString)) {
-        preHash.append("?").append(queryString);
-    }
-    if (org.apache.commons.lang3.StringUtils.isNotEmpty(body)) {
-        preHash.append(body);
-    }
-    return preHash.toString();
-}
-
-/**
- * queryString
- **/
-private String queryString(ServerHttpRequest request) {
-    String url = request.getURI().toString();
-    String queryString = "";
-    if (url.contains("?")) {
-        queryString = url.substring(url.lastIndexOf("?") + 1);
-    }
-    return queryString;
-}
-
-```
-
-### Here is a example of how to create order
+签名规则请参考[**签名示例**](broken-reference)
 
 * Java
 

@@ -1,42 +1,29 @@
 # ENUM
 
-#### **Terminology**
 
-* `base asset` refers to the asset that is the `quantity` of a symbol.
-* `quote asset` refers to the asset that is the `price` of a symbol.
 
-#### **Order status:**
+#### **术语解释:** <a href="#shu-yu-jie-shi" id="shu-yu-jie-shi"></a>
 
-* `NEW`&#x20;
-* `PARTIALLY_FILLED` &#x20;
-* `FILLED` &#x20;
-* `CANCELED` &#x20;
-* `PENDING_CANCEL`&#x20;
-* `REJECTED`&#x20;
+* `base` 指一个交易对的交易对象，即写在靠前部分的资产名
+* `quote` 指一个交易对的定价资产，即写在靠后部分资产名
 
-#### **Order types:**
+#### **订单状态:** <a href="#ding-dan-zhuang-tai" id="ding-dan-zhuang-tai"></a>
 
-* `LIMIT`
-* `MARKET`&#x20;
+* `NEW` 新建订单
+* `PARTIALLY_FILLED` 部分成交
+* `FILLED` 全部成交
+* `CANCELED` 已撤销
+* `PENDING_CANCEL` 正在撤销中
+* `REJECTED` 订单被拒绝
 
-#### **Order side:**
+#### **订单种类:** <a href="#ding-dan-zhong-lei" id="ding-dan-zhong-lei"></a>
 
-* `BUY`&#x20;
-* `SELL`&#x20;
+* `LIMIT` 限价单
+* `MARKET` 市价单
 
-#### **Kline/Candlestick Interval:**
+#### **订单方向:** <a href="#ding-dan-fang-xiang" id="ding-dan-fang-xiang"></a>
 
-min -> minutes; h -> hours; day -> days; week -> weeks; month -> months
-
-* `1min`
-* `5min`
-* `15min`
-* `30min`
-* `60min`
-* `1h`
-* `4h`
-* `1day`
-* `1week`
-* `1month`
+* `BUY` 买单
+* `SELL` 卖
 
 <mark style="color:blue;">`GET`</mark>&#x20;
