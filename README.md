@@ -1,24 +1,20 @@
-# OpenApi 基本信息
+# OpenApi Basic Information
 
+## API Basic Information
 
+* baseurl `https://openapi.xxx.xx`
+* All endpoints return either a JSON object or array.&#x20;
+* Data is returned in **Reverse** order. newest first, oldest last.
+* All time and timestamp related fields are in milliseconds.
 
-## API基本信息
+## HTTP Error Codes
 
-* 本篇列出REST接口的baseurl `https://openapi.xxx.xx`
-* 所有接口都会返回一个JSON object或者array.
-* 响应中如有数组，数组元素以时间倒序排列，越早的数据越提前.
-* 所有时间、时间戳均为UNIX时间，单位为毫秒.
-
-
-
-## HTTP返回代码
-
-* HTTP `4XX` 错误码用于指示错误的请求内容、行为、格式.
-* HTTP `410` 错误码表示警告访问频次超限，即将被封IP.
-* HTTP `418` 表示收到429后继续访问，会被封禁IP,频繁违反限制，封禁时间会逐渐延长，从最短2分钟到最长3天.
-* HTTP `5XX` 返回错误码是内部系统错误；这说明这个问题是在服务器这边。在对待这个错误时，千万 不要把它当成一个失败的任务，因为执行状态 未知，有可能是成功也有可能是失败.
-* HTTP `504` 表示API服务端已经向业务核心提交了请求但未能获取响应，特别需要注意的是`504`代码不代表请求失败，而是未知。很可能已经得到了执行，也有可能执行失败，需要做进一步确认.
-* 任何接口都可能返回ERROR(错误); 错误的返回payload如下:
+* HTTP `4XX` return codes are used for malformed requests; the issue is on the sender's side.
+* HTTP 410 return code is used when breaking a request rate limit.
+* HTTP 418 means that if you continue to access after receiving 429, you will be blocked from IP, and the blocking time will be gradually extended from a minimum of 2 minutes to a maximum of 3 days for frequent violations of the restrictions.
+* HTTP `5XX` return codes are used for internal errors
+* HTTP `504` return code is used when the API successfully sent the message but not get a response within the timeout period. It is important to **NOT** treat this as a failure operation; the execution status is **UNKNOWN** and could have been a success.
+* All endpoints can possibly return an ERROR, the error payload is as follows:
 
 ```java
 {
@@ -27,57 +23,54 @@
 }
 ```
 
-## 接口通用信息
+## General Information
 
-* 所有请求基于Https协议，请求头信息中`Content-Type`需要统一设置为: `'application/json'.`
-* `GET`方法的接口, 参数必须在`query string`中发送.
-* `POST`方法的接口, 参数必须在`request body`中发送.
-* 对参数的顺序不做要求.
+* All requests are based on the Https protocol, and the `Content-Type` in the request header information needs to be uniformly set to:`'application/json'`
+* For the interface of the `GET` method, the parameters must be sent in the `query string`
+* The interface of the `POST` method, the parameters must be sent in the `request body`
+* Parameters may be sent in any order.
 
-## 访问限制
+## LIMITS
 
-* 访问限制是基于IP或者UID的，而不是API Key.
-* 按IP和按UID(account)两种模式分别统计, 两者互相独立.
-* 按照IP统计的权重单接口权重总额为每分钟12000.
-* 按照UID统计的接口权重总额是每分钟60000.
-* 每个接口会标明是按照IP或者按照UID统计, 以及相应请求一次的权重值
-* 在每个接口下面会有限频的说明.
-* 违反频率限制都会收到HTTP 429，这是一个警告.
-* 当收到429告警时，调用者应当降低访问频率或者停止访问.
+* Access restrictions are based on IP or UID, not API Key.
+* The statistics by IP and by UID (account) are independent of each other.
+* The total weight of single interface weight according to IP statistics is 12,000 per minute
+* The total amount of interface weights by UID is 60,000 per minute
+* Each interface will indicate whether the statistics are by IP or by UID, and the weight value of the corresponding request once
+* There will be a limited frequency description below each interface.
+* A 429 will be returned when either rate limit is violated.
+* A 429 will be returned when either rate limit is violated.
 
+## Endpoint Security Type
 
+* Each endpoint has a security type that determines the how you will interact with it.
+* API-keys are passed into the Rest API via the `X-CH-APIKEY` header.
+* API-keys and secret-keys **are case sensitive**.
 
-## 接口鉴权类型
+| Security Type | Description                                              |
+| ------------- | -------------------------------------------------------- |
+| NONE          | Endpoint can be accessed freely.                         |
+| TRADE         | Endpoint requires sending a valid API-Key and signature. |
+| USER\_DATA    | Endpoint requires sending a valid API-Key and signature. |
+| USER\_STREAM  | Endpoint requires sending a valid API-Key.               |
+| MARKET\_DATA  | Endpoint requires sending a valid API-Key.               |
 
-* 每个接口都有自己的鉴权类型，鉴权类型决定了访问时应当进行何种鉴权
-* 如果需要 API-key，应当在HTTP头中以`X-CH-APIKEY`字段传递
-* API-key 与 API-secret 是大小写敏感的
-* 可以在网页用户中心修改API-key 所具有的权限，例如读取账户信息、发送交易指令、发送提现指令
+## SIGNED (TRADE 与 USER\_DATA) endpoint security
 
-| 鉴权类型         | 描述              |
-| ------------ | --------------- |
-| NONE         | 不需要鉴权的接口        |
-| TRADE        | 需要有效的API-KEY和签名 |
-| USER\_DATA   | 需要有效的API-KEY和签名 |
-| USER\_STREAM | 需要有效的API-KEY    |
-| MARKET\_DATA | 需要有效的API-KEY    |
+* When calling the `TRADE` or `USER_DATA` interface, the signature parameter should be passed in the `X-CH-SIGN` field in the HTTP header.
+* The signature uses the `HMAC SHA256` algorithm. The `API-Secret` corresponding to the API-KEY is used as the `HMAC SHA256` key.
+* The request header of `X-CH-SIGN` is based on `timestamp` + `method` + `requestPath` + `body string`  (+ means string connection) as the operation object
+* The value of `timestamp` is the same as the `X-CH-TS` request header, `method` is the request method, and the letters are all uppercase: `GET/POST`
+* `requestPath` is the request interface path For example: `/sapi/v1/order`
+* `body` is the string of the request body (post only)
+* The signature is not case sensitive.
 
-## 需要签名的接口 (TRADE 与 USER\_DATA)
+## Timing Security
 
-* 调用`TRADE`或者`USER_DATA`接口时，应当在HTTP头中以`X-CH-SIGN`字段传递签名参数.
-* 签名使用`HMAC SHA256`算法. API-KEY所对应的API-Secret作为 `HMAC SHA256` 的密钥.
-* `X-CH-SIGN`的请求头是以timestamp + method + requestPath + body字符串(+表示字符串连接)作为操作对象
-* 其中timestamp的值与`X-CH-TS`请求头相同, method是请求方法，字母全部大写：GET/POST.
-* requestPath是请求接口路径 例如:/sapi/v1/order?orderId=211222334\&symbol=BTCUSDT
-* `body`是请求主体的字符串(post only) 如果是`GET`请求则`body`可省略
-* 签名大小写不敏感。
-
-## 时间同步安全
-
-* 签名接口均需要在HTTP头中以`X-CH-TS`字段传递时间戳, 其值应当是请求发送时刻的unix时间戳（毫秒） e.g. 1528394129373
-* 服务器收到请求时会判断请求中的时间戳，如果是5000毫秒之前发出的，则请求会被认为无效。这个时间窗口值可以通过发送可选参数`recvWindow`来自定义。
-* 另外，如果服务器计算得出客户端时间戳在服务器时间的‘未来’一秒以上，也会拒绝请求。
-* 逻辑伪代码：
+* The signature interface needs to pass the timestamp in the `X-CH-TS` field in the HTTP header, and its value should be the unix timestamp of the request sending time e.g. `1528394129373`
+* An additional parameter, `recvWindow`, may be sent to specify the number of milliseconds after `timestamp` the request is valid for. If `recvWindow` is not sent, **it defaults to 5000**.
+* In addition, if the server calculates that the client's timestamp is more than one second ‘in the future’ of the server’s time, it will also reject the request.
+* The logic is as follows:
 
 ```java
 if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= recvWindow) {
@@ -87,26 +80,28 @@ if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= recvWindow) {
 }
 ```
 
-**关于交易时效性** 互联网状况并不100%可靠，不可完全依赖,因此你的程序本地到交易所服务器的时延会有抖动. 这是我们设置`recvWindow`的目的所在，如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置`recvWindow`以达到你的要求。 不推荐使用5秒以上的`recvWindow`
+**Serious trading is about timing.**  Networks can be unstable and unreliable, which can lead to requests taking varying amounts of time to reach the servers. With `recvWindow`, you can specify that the request must be processed within a certain number of milliseconds or be rejected by the server.&#x20;
 
-## POST /sapi/v1/order/test 的示例
+**It recommended to use a small recvWindow of 5000 or less!**
 
-以下是在linux bash环境下使用 echo openssl 和curl工具实现的一个调用接口下单的示例 apikey、secret仅供示范
+## SIGNED Endpoint Examples for POST /sapi/v1/order
+
+Here is a step-by-step example of how to send a vaild signed payload from the Linux command line using `echo`, `openssl`, and `curl`.
 
 | Key       | Value                            |
 | --------- | -------------------------------- |
 | apiKey    | vmPUZE6mv9SD5V5e14y7Ju91duEh8A   |
 | secretKey | 902ae3cb34ecee2779aa4d3e1d226686 |
 
-| 参数     | 取值      |
-| ------ | ------- |
-| symbol | BTCUSDT |
-| side   | BUY     |
-| type   | LIMIT   |
-| volume | 1       |
-| price  | 9300    |
+| Parameter | value   |
+| --------- | ------- |
+| symbol    | BTCUSDT |
+| side      | BUY     |
+| type      | LIMIT   |
+| volume    | 1       |
+| price     | 9300    |
 
-## 签名示例
+## Signature example
 
 * **body:**&#x20;
 
@@ -114,14 +109,14 @@ if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= recvWindow) {
 {"symbol":"BTCUSDT","price":"9300","volume":"1","side":"BUY","type":"LIMIT"}
 ```
 
-* **HMAC SHA256 签名:**
+* **HMAC SHA256 Signature:**
 
 ```bash
 [linux]$ echo -n "1588591856950POST/sapi/v1/order/test{\"symbol\":\"BTCUSDT\",\"price\":\"9300\",\"volume\":\"1\",\"side\":\"BUY\",\"type\":\"LIMIT\"}" | openssl dgst -sha256 -hmac "902ae3cb34ecee2779aa4d3e1d226686"
 (stdin)= c50d0a74bb9427a9a03933d0eded03af9bf50115dc5b706882a4fcf07a26b761
 ```
 
-* **curl 调用:**
+* **Curl command :**
 
 ```bash
   (HMAC SHA256)
