@@ -39,12 +39,14 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 
 #### Response:
 
+
+
 | name       | type   | example             | description      |
 | ---------- | ------ | ------------------- | ---------------- |
 | serverTime | long   | 1607702400000       | server timestamp |
 | timezone   | string | China standard time | server time zone |
 
-## Contract List
+## Futures List
 
 <mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/contracts`
 
@@ -66,7 +68,13 @@ Endpoints under **Public** section can be accessed freely without requiring any 
         "multiplierCoin": "HT",
         "minOrderMoney": 0.001,
         "maxLimitMoney": 1000000,
-        "status": 1
+        "status": 1,
+        "minLever": 1,
+        "maxLever": 75,
+        "openTakerFee":0.0002,
+        "openMakerFee":0.0002,
+        "closeTakerFee":0.0002,
+        "closeMakerFee":0.0002
     }
 ]
 ```
@@ -75,21 +83,27 @@ Endpoints under **Public** section can be accessed freely without requiring any 
 
 #### Response: <a href="#response-1" id="response-1"></a>
 
-| name            | type   | example      | description                                                                       |
-| --------------- | ------ | ------------ | --------------------------------------------------------------------------------- |
-| symbol          | string | `E-BTC-USDT` | Contract name                                                                     |
-| status          | number | `1`          | status（0：cannot trade，1：can trade                                                 |
-| type            | string | `S`          | contract type, E: perpetual contract, S: test contract, others are mixed contract |
-| side            | number | `1`          | Contract direction(backwards：0，1：forward)                                         |
-| multiplier      | number | `0.5`        | Contract face value                                                               |
-| multiplierCoin  | string | `BTC`        | Contract face value unit                                                          |
-| pricePrecision  | number | `4`          | Precision of the price                                                            |
-| minOrderVolume  | number | `10`         | Minimum order volume, the unit is "sheet".                                        |
-| minOrderMoney   | number | `10`         | Minimum order value                                                               |
-| maxMarketVolume | number | `100000`     | Market price order maximum volume, the unit is "sheet".                           |
-| maxMarketMoney  | number | `100000`     | Market price order maximum value                                                  |
-| maxLimitVolume  | number | `100000`     | Limit price order maximum volume, the unit is "sheet".                            |
-| maxValidOrder   | number | `100000`     | Maximum valid order quantity                                                      |
+| name            | type   | example      | description                                                                      |
+| --------------- | ------ | ------------ | -------------------------------------------------------------------------------- |
+| symbol          | string | `E-BTC-USDT` | Futures name                                                                     |
+| status          | number | `1`          | status（0：cannot trade，1：can trade                                                |
+| type            | string | `S`          | Futures type, E: perpetual contract, S: test contract, others are mixed contract |
+| side            | number | `1`          | Futures direction(backwards：0，1：forward)                                         |
+| multiplier      | number | `0.5`        | Futures face value                                                               |
+| multiplierCoin  | string | `BTC`        | Futures face value unit                                                          |
+| pricePrecision  | number | `4`          | Precision of the price                                                           |
+| minOrderVolume  | number | `10`         | Minimum order volume, the unit is "sheet".                                       |
+| minOrderMoney   | number | `10`         | Minimum order value                                                              |
+| maxMarketVolume | number | `100000`     | Market price order maximum volume, the unit is "sheet".                          |
+| maxMarketMoney  | number | `100000`     | Market price order maximum value                                                 |
+| maxLimitVolume  | number | `100000`     | Limit price order maximum volume, the unit is "sheet".                           |
+| maxValidOrder   | number | `100000`     | Maximum valid order quantity                                                     |
+| minLever        | number | `5`          | Minimum leverage multiplier                                                      |
+| maxLever        | number | `5`          | Maximum leverage multiplier                                                      |
+| openTakerFee    | number | `0.0002`     | Taker fee for opening a position                                                 |
+| openMakerFee    | number | `0.0002`     | Maker fee for opening a position                                                 |
+| closeTakerFee   | number | `0.0002`     | Taker fee for closing a position                                                 |
+| closeMakerFee   | number | `0.0002`     | Maker fee for closing a position                                                 |
 
 ## Market <a href="#hang-qing-xiang-guan" id="hang-qing-xiang-guan"></a>
 
@@ -179,6 +193,43 @@ The fields bids and asks are lists of order book price level entries, sorted fro
     "rose": "0",
     "time": 1595563624731
 }
+```
+{% endtab %}
+{% endtabs %}
+
+#### Response:
+
+| name | type   | example         | description     |
+| ---- | ------ | --------------- | --------------- |
+| time | long   | `1595563624731` | Open time       |
+| high | float  | `9900`          | Higher price    |
+| low  | float  | `8800.34`       | Lower price     |
+| last | float  | `8900`          | Newest price    |
+| vol  | float  | `4999`          | Trade volume    |
+| rose | string | +0.5            | Price variation |
+
+## All market tickers
+
+<mark style="color:blue;">`GET`</mark> `https://futuersopenapi.xxx.xx/fapi/v1/ticker_all`
+
+{% tabs %}
+{% tab title="200 " %}
+```java
+
+{"e_btcusdt":{"high": "9279.0301",
+    "vol": "1302",
+    "last": "9200",
+    "low": "9279.0301",
+    "rose": "0",
+    "time": 1595563624731
+},"e_ethusdt":{
+    "high": "9279.0301",
+    "vol": "1302",
+    "last": "9200",
+    "low": "9279.0301",
+    "rose": "0",
+    "time": 1595563624731
+}}
 ```
 {% endtab %}
 {% endtabs %}
@@ -357,7 +408,7 @@ Creation of single new orders
 | open         | string | Open balancing direction, `OPEN/CLOSE`                                                                                                                                     |
 | side         | string | trade direction, `BUY/SELL`                                                                                                                                                |
 | type         | string | Order type, `LIMIT/MARKET`                                                                                                                                                 |
-| contractName | string | Contract name E.g. `E-BTC-USDT`                                                                                                                                            |
+| contractName | string | Futures name E.g. `E-BTC-USDT`                                                                                                                                             |
 | price        | number | Order price                                                                                                                                                                |
 
 {% tabs %}
@@ -396,6 +447,32 @@ Speed limit rules: 20 times/ 2 seconds
 ```java
 {
     "orderId": 256609229205684228
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Cancel all orders
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/cancel_all`
+
+#### Headers
+
+| Name        | type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | Signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | Time stamp   |
+
+#### Request Body
+
+{% tabs %}
+{% tab title="200 " %}
+```java
+{ 
+    "code": "0", 
+    "msg": "成功", 
+    "data": null 
 }
 ```
 {% endtab %}
@@ -456,13 +533,13 @@ Speed limit rules: 20 times/ 2 seconds
 <mark style="color:blue;">`GET`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/openOrders`
 
 **Speed limit rules:**\
-**Obtain open contract, the user's current order**
+**Obtain open futures, the user's current order**
 
 #### Query Parameters
 
-| Name         | Type   | Description                |
-| ------------ | ------ | -------------------------- |
-| contractName | string | Contract name `E-BTC-USDT` |
+| Name         | Type   | Description                                                                                                    |
+| ------------ | ------ | -------------------------------------------------------------------------------------------------------------- |
+| contractName | string | <p>If this field is not passed, all contracts will be queried.</p><p>Contract name <code>E-BTC-USDT</code></p> |
 
 #### Headers
 
@@ -619,11 +696,11 @@ Speed limit rules: 20 times/ 2 seconds
 
 #### Query Parameters
 
-| Name         | Type   | Description                           |
-| ------------ | ------ | ------------------------------------- |
-| contractName | string | Contract name E.g. E-BTC-USDT         |
-| limit        | string | Lines per page, default 100, max 1000 |
-| fromId       | long   | Start retrieving from this tradeId    |
+| Name         | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| contractName | string | Contract name E.g. E-BTC-USDT        |
+| limit        | string | Lines per page, default 100, max 500 |
+| fromId       | long   | Start retrieving from this tradeId   |
 
 #### Headers
 
@@ -673,6 +750,128 @@ Speed limit rules: 20 times/ 2 seconds
 | contractName | string  | E-BTC-USDT         | Contract name                                       |
 | isMaker      | boolean | true               | is it maker?                                        |
 | isBuyer      | boolean | true               | is it buyer?                                        |
+
+## Change Position Mode
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_user_position_model`&#x20;
+
+#### Headers
+
+| X-CH-SIGN   | string  | signature    |
+| ----------- | ------- | ------------ |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | time stamp   |
+
+**Request Body**
+
+| contractName\*  | string  | Futures name `E-BTC-USDT`                                          |
+| --------------- | ------- | ------------------------------------------------------------------ |
+| positionModel\* | integer | Position Mode (1. Net Position 2. Two-way Position) - Enter 1 or 2 |
+
+{% tabs %}
+{% tab title="200 " %}
+```java
+{ 
+    "code": "0", 
+    "msg": "成功", 
+    "data": null 
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Change Margin Mode
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_user_margin_model`&#x20;
+
+#### Headers
+
+| Name        | Type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | time stamp   |
+
+**Request Body**
+
+| Name           | Type    | Description                                                     |
+| -------------- | ------- | --------------------------------------------------------------- |
+| contractName\* | string  | Futures name `E-BTC-USDT`                                       |
+| marginModel\*  | integer | Margin Mode (1. Cross Margin 2. Isolated Margin) - Enter 1 or 2 |
+
+{% tabs %}
+{% tab title="200 " %}
+```java
+{ 
+    "code": "0", 
+    "msg": "成功", 
+    "data": null 
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Adjust Position Margin
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_position_margin`
+
+#### Headers
+
+| Name        | Type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | time stamp   |
+
+**Request Body**
+
+| Name         | Type    | Description   |
+| ------------ | ------- | ------------- |
+| positionId\* | integer | Position id   |
+| amount\*     | number  | Adjust Amount |
+
+{% tabs %}
+{% tab title="200 " %}
+```java
+{ 
+    "code": "0", 
+    "msg": "成功", 
+    "data": null 
+}
+```
+{% endtab %}
+{% endtabs %}
+
+## Change Leverage Ratio
+
+<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_lever`
+
+#### Headers
+
+| Name        | Type    | Description  |
+| ----------- | ------- | ------------ |
+| X-CH-SIGN   | string  | signature    |
+| X-CH-APIKEY | string  | Your API-key |
+| X-CH-TS     | integer | time stamp   |
+
+**Request Body**
+
+| Name           | Type    | Description                                  |
+| -------------- | ------- | -------------------------------------------- |
+| contractName\* | string  | Futures name `E-BTC-USDT`                    |
+| nowLevel\*     | integer | The leverage ratio to be modified, e.g., 50. |
+
+{% tabs %}
+{% tab title="200 " %}
+```java
+{ 
+    "code": "0", 
+    "msg": "成功", 
+    "data": null 
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## Account <a href="#zhang-hu" id="zhang-hu"></a>
 
