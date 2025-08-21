@@ -316,7 +316,7 @@ Creation of single new orders
 | open          | string | Open balancing direction, `OPEN/CLOSE`                                                                                                                                     |
 | positionType  | number | Hold-up position, `1 full position, 2 restrictive position`                                                                                                                |
 | clientOrderId | string | Client order identity, a string with length less than 32 bit                                                                                                               |
-| timeInForce   | string | <p><code>IOC, FOK, POST_ONLY</code>when the type is MARKET ，not need this                    <br><br></p>                                                                  |
+| timeInForce   | string | <p>when the type is MARKET ，not need this</p><p><code>IOC, FOK, POST_ONLY</code></p>                                                                                       |
 
 {% tabs %}
 {% tab title="200 " %}
