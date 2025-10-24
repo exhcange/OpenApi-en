@@ -658,13 +658,13 @@ Speed limit rules: 20 times/ 2 seconds
 
 #### Request Body
 
-| Name         | Type   | Description                                                                                          |
-| ------------ | ------ | ---------------------------------------------------------------------------------------------------- |
-| contractName | string | <p>Contract name E.g. E-BTC-USDT<br>Defaults to all contracts if omitted</p>                         |
-| limit        | string | Lines per page, default 100, max 1000                                                                |
-| fromId       | long   | Start retrieving from this Id                                                                        |
-| startTime    | date   | 2025-01-01                                                                                           |
-| endTime      | date   | <p>2025-01-01<br>startTime and endTime must be provided together，The query defaults to all time.</p> |
+| Name         | Type   | Description                                                                                                              |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------ |
+| contractName | string | <p>Contract name E.g. E-BTC-USDT<br>Defaults to all contracts if omitted</p>                                             |
+| limit        | string | Lines per page, default 100, max 1000                                                                                    |
+| fromId       | long   | Start retrieving from this Id                                                                                            |
+| startTime    | long   | timestemp (ms): 1735721190000                                                                                            |
+| endTime      | long   | <p>timestemp (ms): 1735721190000 <br>startTime and endTime must be provided together，The query defaults to all time.</p> |
 
 {% tabs %}
 {% tab title="200: OK " %}
