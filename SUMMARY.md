@@ -7,6 +7,7 @@
 * [Contract](contract.md)
 * [Withdraw](withdraw.md)
 * [WebSocket](websocket.md)
+* [Coingecko docking](coingecko-docking.md)
 * [Errors](errors.md)
 * [Official SDK](official-sdk.md)
 * [FAQ](faq.md)
