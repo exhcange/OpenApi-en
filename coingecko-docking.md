@@ -134,69 +134,62 @@ https://futuresopenapi.xxx.xx/pub/coingecko/contracts?ticker_id=E-BTC-USDT
 **Sample response**
 
 ```json
-{
-    "code": "0",
-    "msg": "success",
-    "data": {
-        "contracts": [
-            {
-                "ticker_id": "E-BTC-USDT",
-                "base_currency": "BTC",
-                "target_currency": "USDT",
-                "last_price": 0,
-                "base_volume": 0,
-                "target_volume": 0,
-                "bid": null,
-                "ask": 9.8E+4,
-                "high": 0,
-                "low": 0,
-                "product_type": "Perpetual",
-                "open_interest": 1116.3655,
-                "open_interest_usd": 102573030.06495740245,
-                "index_price": 0,
-                "index_name": "BTC-USDT",
-                "index_currency": "BTC",
-                "start_timestamp": 0,
-                "end_timestamp": 0,
-                "funding_rate": 0,
-                "next_funding_rate": 0,
-                "next_funding_rate_timestamp": 1768291200000,
-                "contract_type": "Vanilla",
-                "contract_price_currency": "USDT",
-                "contract_price": 0,
-                "timestamp": 1768289995029
-            },
-            {
-                "ticker_id": "E-ETH-USDT",
-                "base_currency": "ETH",
-                "target_currency": "USDT",
-                "last_price": 0,
-                "base_volume": 0,
-                "target_volume": 0,
-                "bid": null,
-                "ask": null,
-                "high": 0,
-                "low": 0,
-                "product_type": "Perpetual",
-                "open_interest": 3004.17,
-                "open_interest_usd": 9383427.795980901,
-                "index_price": 0,
-                "index_name": "ETH-USDT",
-                "index_currency": "ETH",
-                "start_timestamp": 0,
-                "end_timestamp": 0,
-                "funding_rate": 0,
-                "next_funding_rate": 0,
-                "next_funding_rate_timestamp": 1768291200000,
-                "contract_type": "Vanilla",
-                "contract_price_currency": "USDT",
-                "contract_price": 0,
-                "timestamp": 1768289995029
-            }
-        ]
+[
+    {
+        "ticker_id": "E-BTC-USDT",
+        "base_currency": "BTC",
+        "target_currency": "USDT",
+        "last_price": 0,
+        "base_volume": 0,
+        "target_volume": 0,
+        "bid": null,
+        "ask": 9.8E+4,
+        "high": 0,
+        "low": 0,
+        "product_type": "Perpetual",
+        "open_interest": 1116.3655,
+        "open_interest_usd": 102573030.06495740245,
+        "index_price": 0,
+        "index_name": "BTC-USDT",
+        "index_currency": "BTC",
+        "start_timestamp": 0,
+        "end_timestamp": 0,
+        "funding_rate": 0,
+        "next_funding_rate": 0,
+        "next_funding_rate_timestamp": 1768291200000,
+        "contract_type": "Vanilla",
+        "contract_price_currency": "USDT",
+        "contract_price": 0,
+        "timestamp": 1768289995029
+    },
+    {
+        "ticker_id": "E-ETH-USDT",
+        "base_currency": "ETH",
+        "target_currency": "USDT",
+        "last_price": 0,
+        "base_volume": 0,
+        "target_volume": 0,
+        "bid": null,
+        "ask": null,
+        "high": 0,
+        "low": 0,
+        "product_type": "Perpetual",
+        "open_interest": 3004.17,
+        "open_interest_usd": 9383427.795980901,
+        "index_price": 0,
+        "index_name": "ETH-USDT",
+        "index_currency": "ETH",
+        "start_timestamp": 0,
+        "end_timestamp": 0,
+        "funding_rate": 0,
+        "next_funding_rate": 0,
+        "next_funding_rate_timestamp": 1768291200000,
+        "contract_type": "Vanilla",
+        "contract_price_currency": "USDT",
+        "contract_price": 0,
+        "timestamp": 1768289995029
     }
-}
-
+]
 ```
 
 ### contract-orderbook
@@ -229,59 +222,52 @@ https://futuresopenapi.xxx.xx/pub/coingecko/orderbook?ticker_id=E-BTC-USDT&dept=
 
 ```json
 {
-    "code": "0",
-    "msg": "success",
-    "data": {
-        "orderbook": {
-            "ticker_id": "E-BTC-USDT",
-            "asks": [
-                [
-                    98000,
-                    0.46938777
-                ],
-                [
-                    98500.93,
-                    0.1
-                ],
-                [
-                    100000,
-                    3
-                ],
-                [
-                    1800000,
-                    1.111
-                ],
-                [
-                    2000000,
-                    1
-                ]
-            ],
-            "bids": [
-                [
-                    97000,
-                    0.46938777
-                ],
-                [
-                    96500.93,
-                    0.1
-                ],
-                [
-                    96000,
-                    3
-                ],
-                [
-                    95500,
-                    1.111
-                ],
-                [
-                    95000,
-                    1
-                ]
-            ],
-            "timestamp": 1768289995029
-        },
-        "ticker_id": "E-BTC-USDT"
-    }
+    "ticker_id": "E-BTC-USDT",
+    "asks": [
+        [
+            98000,
+            0.46938777
+        ],
+        [
+            98500.93,
+            0.1
+        ],
+        [
+            100000,
+            3
+        ],
+        [
+            1800000,
+            1.111
+        ],
+        [
+            2000000,
+            1
+        ]
+    ],
+    "bids": [
+        [
+            97000,
+            0.46938777
+        ],
+        [
+            96500.93,
+            0.1
+        ],
+        [
+            96000,
+            3
+        ],
+        [
+            95500,
+            1.111
+        ],
+        [
+            95000,
+            1
+        ]
+    ],
+    "timestamp": 1768289995029
 }
 ```
 
