@@ -2,7 +2,7 @@
 
 ### Coin quotes
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/coinGecko/pub/v1/ticker`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/pub/coingecko/ticker`
 
 **Request parameters**
 
@@ -60,7 +60,7 @@ no
 
 ### Disc data
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/coinGecko/pub/v1/orderbook`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/pub/coingecko/orderbook`
 
 **Request parameters**
 
